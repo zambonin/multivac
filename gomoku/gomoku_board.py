@@ -25,9 +25,12 @@ class GomokuBoard():
         assert side >= 5, "No victory conditions!"
         self.side = side
         self.board = [[0 for _ in range(side)] for _ in range(side)]
+<<<<<<< HEAD
         self.nextPlayer = ' '
         self.lastPlayer = ' '
         self.winner = false
+=======
+>>>>>>> 4ff50fe532a57eb2d2dbaf32a988300979c21c54
 
     def __str__(self):
         """Pretty-prints the board with black and white bullets."""
