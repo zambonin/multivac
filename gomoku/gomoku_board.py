@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 """gomoku_board.py
-
 Gomoku, also called "five in a row", is a game traditionally played on a
 15 * 15 board with black and white stones. A victory occurs if a player
 forms an unbroken row of five or more stones horizontally, vertically or
@@ -20,12 +19,15 @@ class GomokuBoard():
 
     def __init__(self, side):
         """Inits GomokuBoard with the attributes introduced above.
-
         Args:
             side:   size of the square's side for the board.
         """
+        assert side >= 5, "No victory conditions!"
         self.side = side
-        self.board = [[0] * side] * side
+        self.board = [[0 for _ in range(side)] for _ in range(side)]
+        self.nextPlayer = ' '
+        self.lastPlayer = ' '
+        self.winner = false
 
     def __str__(self):
         """Pretty-prints the board with black and white bullets."""
@@ -44,10 +46,8 @@ class GomokuBoard():
         """Tests possible horizontal victories grouping consecutive similar
         stones and counting their individual lengths, dismissing groups of
         empty spaces.
-
         Args:
             board:  the matrix representation for the board.
-
         Returns:
             True if there exists a set of five or more stones with the same
             color horizontally aligned on the board, False otherwise.
@@ -62,10 +62,8 @@ class GomokuBoard():
     def v_victory(self, board):
         """Tests possible vertical victories checking horizontal alignments
         within the board's transposed matrix representation.
-
         Args:
             board:  the matrix representation for the board.
-
         Returns:
             True if there exists a set of five or more stones with the same
             color vertically aligned on the board, False otherwise.
@@ -75,10 +73,8 @@ class GomokuBoard():
     def d_victory(self, board):
         """Tests possible diagonal victories checking horizontal alignments
         within the board's diagonals and antidiagonals represented as rows.
-
         Args:
             board:  the matrix representation for the board.
-
         Returns:
             True if there exists a set of five or more stones with the same
             color diagonally aligned on the board, False otherwise.
@@ -90,11 +86,9 @@ class GomokuBoard():
         """Creates lists with all the board matrix's diagonals, starting from
         the (n, 1)th element and going towards the (1, n)th, where `n` is the
         order of the matrix. Based on [1].
-
         Returns:
             All diagonals with length greater than five, the minimum number
             of stones for a valid victory arrangement.
-
         [1] http://stackoverflow.com/a/23069625
         """
         diags, side = [], len(board)
@@ -107,7 +101,6 @@ class GomokuBoard():
     def antidiagonals(self, board):
         """Creates lists with all the antidiagonals, reversing the board
         matrix such that the starting element need not be changed.
-
         Returns:
             All antidiagonals with length greater than five.
         """
@@ -116,7 +109,6 @@ class GomokuBoard():
     def victory(self):
         """Covers all the possible victory conditions given a board with some
         configuration of stones.
-
         Returns:
             True if there exists a set of five stones with the same color
             horizontally, vertically or diagonally aligned on the board,
@@ -129,5 +121,24 @@ class GomokuBoard():
         """Produces a randomly populated board for debugging purposes,
         overriding the attribute for the class.
         """
-        interval = range(1, self.side + 1)
-        self.board = [[randint(-1, 1) for _ in interval] for _ in interval]
+        self.board = [[randint(-1, 1) for _ in range(self.side)]
+                    for _ in range(self.side)]
+                    
+    def getEmpties():
+        empty = defaultdict(dict)
+        for i in range(self.side):
+            for j in range(self.side):
+                if (self.board[i][j] == ' '):
+                    empty.add(i + ' ' + j)
+        return empty
+
+    def placeMove(self, player, move):
+        coord = move.split()
+        board[i][j] = player
+        lastPlayer = player
+        if (player == 1):
+            self.nextPlayer = -1
+        else:
+            self.nextPlayer = 1
+        winner = victory() #need to pass a player parameter, to know who won.
+        return move
