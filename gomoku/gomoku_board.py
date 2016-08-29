@@ -24,8 +24,9 @@ class GomokuBoard():
         Args:
             side:   size of the square's side for the board.
         """
+        assert side >= 5, "No victory conditions!"
         self.side = side
-        self.board = [[0] * side] * side
+        self.board = [[0 for _ in range(side)] for _ in range(side)]
 
     def __str__(self):
         """Pretty-prints the board with black and white bullets."""
@@ -129,5 +130,5 @@ class GomokuBoard():
         """Produces a randomly populated board for debugging purposes,
         overriding the attribute for the class.
         """
-        interval = range(1, self.side + 1)
-        self.board = [[randint(-1, 1) for _ in interval] for _ in interval]
+        self.board = [[randint(-1, 1) for _ in range(self.side)]
+                      for _ in range(self.side)]
