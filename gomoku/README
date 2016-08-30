@@ -1,2 +1,10 @@
 Alpha-beta pruning implementation, tested through a standard, AI vs. human
-player, Gomoku game.
+player, Gomoku game. It can be played by running
+
+    $ python game.py
+    How do you want to play Gomoku?
+    [0] quit
+    [1] human x human
+    ...
+
+ with Python 3.
