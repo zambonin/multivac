@@ -9,7 +9,9 @@ played. A victory occurs if a player forms an unbroken row of five or
 more stones horizontally, vertically or diagonally.
 """
 
-from itertools import groupby
+import os
+
+from itertools import chain, groupby, product, starmap
 from random import randint
 
 
@@ -30,6 +32,8 @@ class GomokuBoard():
 
     def __str__(self):
         """Pretty-prints the board with black and white bullets."""
+        os.system('cls' if os.name == 'nt' else 'clear')
+
         top_row = '┏' + '━' * (2 * len(self.board) + 1) + '┓\n'
         bottom_row = '┗' + '━' * (2 * len(self.board) + 1) + '┛'
         mid_rows = ""
@@ -172,6 +176,45 @@ class GomokuBoard():
         """
         return (all(all(i for i in row) for row in self.board) and
                 not self.victory())
+
+    def neighbor_board(self, position, radius):
+        """
+        Generates the valid neighbors given a starting coordinate.
+
+        Args:
+            position:   the board matrix's coordinates for the last play.
+            radius:     depth of the neighbor search around the coordinate.
+
+        Returns:
+            List of neighbors' coordinates.
+        """
+        x, y = position
+        neighbors = []
+
+        for i in range(1, radius + 1):
+            neighbors += list(starmap(lambda a, b: (x + a, y + b),
+                                      product((0, -i, +i), (0, -i, +i))))
+
+        valid = [i for i in neighbors if all((0 <= j < self.side) for j in i)]
+
+        return list(set(valid) - set([position]))
+
+    def filled_spaces(self, board, player):
+        """
+        Elaborates which spaces of the board matrix were played by some
+        player, or are empty (if the player argument is zero).
+
+        Args:
+            board:  the matrix representation for the board.
+            player: a integer representing the player, or its absence.
+
+        Returns:
+            List with the coordinates of the valid places.
+        """
+        size = range(len(board))
+        _list = [[(i, j) for j in size if board[i][j] == player] for i in size]
+
+        return list(chain.from_iterable(_list))
 
     def rnd_board(self):
         """
