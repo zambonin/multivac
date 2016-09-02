@@ -5,7 +5,7 @@
 \usepackage[a4paper, margin=1.5cm]{geometry}
 \usepackage[colorlinks, urlcolor=blue, citecolor=red]{hyperref}
 \usepackage[utf8]{inputenc}
-\usepackage{enumitem, graphicx}
+\usepackage{cancel, enumitem, tikz-qtree}
 
 \title{\textbf{Exemplo de poda $\alpha$-$\beta$ e função heurística para damas}}
 \author{Emmanuel Podestá Jr., Gustavo Zambonin\thanks{
@@ -13,21 +13,90 @@
 \small {Inteligência Artificial (UFSC -- INE5430)} \vspace{-5mm}}
 \date{}
 
+\newcommand{\cc}[1]{\cancel{#1} \;}
+\tikzset{every tree node/.style={align=center,anchor=north}}
+
 \begin{document}
 
 \maketitle
 
 \begin{enumerate}[label=\textbf{\arabic*})]
 
-    \item Em anexo ao final do documento, a árvore resolvida a partir do
-    algoritmo de poda. Para os nodos folha, $\alpha$ e $\beta$ não foram
-    computados para que a imagem não ficasse confusa; locais marcados com
-    um asterisco (*) são passíveis de poda caso existissem outros filhos.
+    \item Observações: locais marcados com um asterisco (*) são passíveis de
+    poda caso existissem outros filhos. A árvore com raiz em um nodo
+    `'cancelado`' (\cancel{exemplo}) foi podada pelo algoritmo.
 
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\textwidth]{arvore.jpg}
-    \end{figure}
+    \begin{tikzpicture}[sibling distance=-2pt]
+
+        \Tree
+            [.$5_{\beta = +\infty}^{\alpha = \cc{-\infty} 5}$
+                [.$5_{\beta = \cc{+\infty} 5}^{\alpha = -\infty}$
+                    [.$5_{\beta = +\infty}^{\alpha = \cc{-\infty} 5}$
+                        [.$5_{\beta = \cc{+\infty} \cc{7} 5}^{\alpha = -\infty}$
+                            [ .{7 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 7$} ]
+                            [ .{5 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 5$} ]
+                        ]
+                        [.$2_{\beta = \cc{+\infty} \cc{9} 2}^{\alpha = -\infty}$
+                            [ .{9 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 9$} ]
+                            [ .{2 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 2$} ]
+                            [ .{\cancel{1} \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 1$} ]
+                        ]
+                    ]
+                    [.$^{*}7_{\beta = 5}^{\alpha = \cc{-\infty} 7}$
+                        [.$7_{\beta = 5}^{\alpha = -\infty}$
+                            [ .{7 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 7$} ]
+                        ]
+                    ]
+                ]
+                [.$3_{\beta = \cc{+\infty} 9}^{\alpha = 5}$
+                    [.$9_{\beta = +\infty}^{\alpha = \cc{5} \cc{7} 9}$
+                        [.$7_{\beta = \cc{+\infty} 7}^{\alpha = 5}$
+                            [ .{7 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 7$} ]
+                        ]
+                        [.$9_{\beta = \cc{+\infty} 9}^{\alpha = 7}$
+                            [ .{9 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 9$} ]
+                            [ .{10 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 10$} ]
+                        ]
+                    ]
+                    [.$3_{\beta = 9}^{\alpha = 5}$
+                        [.$^{*}3_{\beta = \cc{9} 3}^{\alpha = 5}$
+                            [ .{3 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 3$} ]
+                        ]
+                    ]
+                ]
+                [.$2_{\beta = \cc{+\infty} 2}^{\alpha = 5}$
+                    [.$2_{\beta = +\infty}^{\alpha = 5}$
+                        [.$^{*}2_{\beta = \cc{+\infty} 2}^{\alpha = 5}$
+                            [ .{2 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 2$} ]
+                        ]
+                    ]
+                    [.\cancel{\_}
+                        [.\_
+                            [ .{6 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 6$} ]
+                            [ .{5 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 5$} ]
+                        ]
+                        [.\_
+                            [ .{7 \\ $\scriptstyle\alpha = -\infty$
+                                    \\ $\scriptstyle\beta = 7$} ]
+                        ]
+                    ]
+                ]
+            ]
+
+    \end{tikzpicture}
 
     \item Considerando um jogo de damas usual e observando um modelo de grafo
     convencional, que mapeia estados do tabuleiro para nodos e jogadas válidas
