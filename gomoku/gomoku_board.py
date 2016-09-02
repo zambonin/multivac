@@ -216,6 +216,75 @@ class GomokuBoard():
 
         return list(chain.from_iterable(_list))
 
+    def row_nuples(self, board, player, n):
+        """
+        Sweeps the rows of the board matrix looking for groupings of stones
+        with the same color.
+
+        Args:
+            board:  the matrix representation for the board.
+            player: a integer representing the player.
+            n:      length of groupings.
+
+        Returns:
+            Quantity of horizontal n-uples played by some player.
+        """
+        qnt = 0
+        for row in board:
+            lengths = [(piece, sum(1 for _ in group))
+                       for piece, group in groupby(row)]
+            qnt += len([i for i in lengths if i[0] == player and i[1] == n])
+
+        return qnt
+
+    def col_nuples(self, board, player, n):
+        """
+        Sweeps the columns of the board matrix looking for groupings of stones
+        with the same color.
+
+        Args:
+            board:  the matrix representation for the board.
+            player: a integer representing the player.
+            n:      length of groupings.
+
+        Returns:
+            Quantity of vertical n-uples played by some player.
+        """
+        return self.row_nuples(zip(*board), player, n)
+
+    def diag_nuples(self, board, player, n):
+        """
+        Sweeps the diagonals of the board matrix looking for groupings of
+        stones with the same color.
+
+        Args:
+            board:  the matrix representation for the board.
+            player: a integer representing the player.
+            n:      length of groupings.
+
+        Returns:
+            Quantity of diagonal n-uples played by some player.
+        """
+        return (self.row_nuples(self.diagonals(board), player, n) +
+                self.row_nuples(self.antidiagonals(board), player, n))
+
+    def nuples_quantity(self, board, player, n):
+        """
+        Sweeps the entire board matrix looking for groupings of stones with
+        the same color.
+
+        Args:
+            board:  the matrix representation for the board.
+            player: a integer representing the player.
+            n:      length of groupings.
+
+        Returns:
+            Quantity of n-uples played by some player throughout the board.
+        """
+        return (self.row_nuples(board, player, n) +
+                self.col_nuples(board, player, n) +
+                self.diag_nuples(board, player, n))
+
     def rnd_board(self):
         """
         Produces a randomly populated board for debugging purposes, overriding
