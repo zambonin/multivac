@@ -26,6 +26,7 @@ class GomokuBoard():
             side:   size of the square's side for the board.
         """
         assert side >= 5, "No victory conditions!"
+
         self.side = side
         self.board = [[0 for _ in range(side)] for _ in range(side)]
         self.stones = {0: ' ', 1: '●', -1: '○'}
@@ -34,8 +35,8 @@ class GomokuBoard():
         """Pretty-prints the board with black and white bullets."""
         os.system('cls' if os.name == 'nt' else 'clear')
 
-        top_row = '┏' + '━' * (2 * len(self.board) + 1) + '┓\n'
-        bottom_row = '┗' + '━' * (2 * len(self.board) + 1) + '┛'
+        top_row = '┏' + '━' * (2 * len(self.board[0]) + 1) + '┓\n'
+        bottom_row = '┗' + '━' * (2 * len(self.board[0]) + 1) + '┛'
         mid_rows = ""
 
         for row, i in zip(self.board, range(len(self.board))):
@@ -95,26 +96,30 @@ class GomokuBoard():
     def diagonals(self, board):
         """
         Creates lists with all the board matrix's diagonals, starting from the
-        (n, 1)th element and going towards the (1, n)th, where `n` is the
-        order of the matrix. Based on [1].
+        bottom-left element and going towards the top-right. Based on [1].
+
+        Args:
+            board:  the matrix representation for the board.
 
         Returns:
-            All diagonals with length greater than five, the minimum number
-            of stones for a valid victory arrangement.
+            All the diagonals from the matrix.
 
         [1] http://stackoverflow.com/a/23069625
         """
-        diags, side = [], len(board)
-        for i in range(2 * side - 1):
-            poss_range = range(max(i - side + 1, 0), min(i + 1, side))
-            diags.append([board[side - i + j - 1][j] for j in poss_range])
+        diags, h, w = [], len(board), len(board[0])
+        for i in range(h + w - 1):
+            poss_range = range(max(i - w + 1, 0), min(h - 1, i) + 1)
+            diags.append([board[h - 1 - j][i - j] for j in poss_range])
 
-        return [i for i in diags if len(i) >= 5]
+        return diags
 
     def antidiagonals(self, board):
         """
         Creates lists with all the antidiagonals, reversing the board matrix
         such that the starting element need not be changed.
+
+        Args:
+            board:  the matrix representation for the board.
 
         Returns:
             All antidiagonals with length greater than five.
@@ -199,6 +204,21 @@ class GomokuBoard():
 
         return list(set(valid) - set([position]))
 
+    def empty_neighbors(self, board, position, radius):
+        """
+        Checks if neighbors are empty given a starting coordinate.
+
+        Args:
+            board:      the matrix representation for the board.
+            position:   the board matrix's coordinates for the last play.
+            radius:     depth of the neighbor search around the coordinate.
+
+        Returns:
+            List of empty neighbors' coordinates.
+        """
+        return [(i, j) for i, j in self.neighbor_board(position, radius)
+                if not board[i][j]]
+
     def filled_spaces(self, board, player):
         """
         Elaborates which spaces of the board matrix were played by some
@@ -268,22 +288,21 @@ class GomokuBoard():
         return (self.row_nuples(self.diagonals(board), player, n) +
                 self.row_nuples(self.antidiagonals(board), player, n))
 
-    def nuples_quantity(self, board, player, n):
+    def nuples_quantity(self, player, n):
         """
         Sweeps the entire board matrix looking for groupings of stones with
         the same color.
 
         Args:
-            board:  the matrix representation for the board.
             player: a integer representing the player.
             n:      length of groupings.
 
         Returns:
             Quantity of n-uples played by some player throughout the board.
         """
-        return (self.row_nuples(board, player, n) +
-                self.col_nuples(board, player, n) +
-                self.diag_nuples(board, player, n))
+        return (self.row_nuples(self.board, player, n) +
+                self.col_nuples(self.board, player, n) +
+                self.diag_nuples(self.board, player, n))
 
     def rnd_board(self):
         """

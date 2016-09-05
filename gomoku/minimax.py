@@ -1,83 +1,106 @@
-#minmax class
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
-class Minimax:
-	# here we will evaluate with the heuristic.
+"""minimax.py
 
-	def evaluate(self, board):
-		oneTuple = board.possibleWins(board.lastPlayer, 1)
-		twoTuple = board.possibleWins(board.lastPlayer, 2)
-		threeTuple = board.possibleWins(board.lastPlayer, 3)
-		heuristic = oneTuple + twoTuple + threeTuple
-		return heuristic
+Class where various methods regarding heuristics for the game are placed.
+"""
 
-	def minimax(self, board, depth, alpha, beta):
-		movesList = []
-		spots = board.getOcuppiedSpots(board.nextPlayer)
-		moves = []
-		for i in range(spots.size()):
-			moves.add(board.lookAround(spots.get(i)))
+from copy import deepcopy
+from itertools import chain
+from random import choice
 
-		#move.removeOccupiedones?
 
-		if moves.empty():
-			movesList = board.getEmpties()
-		else:
-			movesList = moves
+class Minimax():
+    """
+    Decision rule for minimizing the possible loss in a worst case
+    scenario. It assumes that the first player is maximizing his chance
+    of winning, and its opponent is trying to minimize that same chance
+    (i.e. maximize its own chances).
+    """
 
-		if depth == 0:
-			return movesList.get(0)
-	
+    def ab_pruning(self, board, depth, alpha, beta, player):
+        """
+        Improvement over the naïve minimax algorithm that seeks to decrease
+        the number of nodes evaluated by the algorithm through pruning: if a
+        subtree of the game graph is proven to be worse than some previously
+        analysed node, then it needs not be analysed and as such, may be
+        discarded. Hence, deeper searches may be performed.
 
-# 	/**
-# 	 * Minimax algorithm with alpha-beta pruning.
-# 	 * @param  depth lookahead
-# 	 * @param  myBest alpha
-# 	 * @param  theirBest beta
-# 	 * @return Object[0] contains (Double) score and Object[1] contains (String) move
-# 	 */
-# 	Object[] mmab(Board board, int d, double myBest, double theirBest) {
-# 		ArrayList<String> moveList;
-# 		Set<String> moves = new HashSet<String>();
-# 		ArrayList<String> places = board.getPlayerPlaces(board.nextPlayer);
-# 		for (int i = 0; i < places.size(); i++) {
-# 			moves.addAll(board.lookAround(places.get(i)));
-# 		}
-# 		moves.retainAll(board.getEmpties());
-# 		// make sure that moves is not empty
-# 		// otherwise, pick from list of empty locations
-# 		if (moves.isEmpty())
-# 			moveList = new ArrayList<String>(board.getEmpties());
-# 		else
-# 			moveList = new ArrayList<String>(moves);
+        Args:
+            board:  a GomokuBoard object.
+            depth:  maximum depth before end of recursion; deeper searches
+                    may perform better, although at a cost.
+            alpha:  maximum score that the maximizing player is assured of.
+            beta:   minimum score that the minimizing player is assured of.
+            player: a integer representing the maximizing player.
 
-# 		Double bestScore;
-# 		Object[] temp;
-# 		Double tempScore;
-# 		String bestMove = "";
+        Returns:
+            A tuple containing the score for a given board, and the best move
+            evaluated by the algorithm.
+        """
+        filled_spots = list(chain.from_iterable(
+            board.filled_spaces(board.board, i) for i in [1, -1]))
+        empty_neighbors = list(chain.from_iterable(
+            board.empty_neighbors(board.board, i, 1) for i in filled_spots))
 
-# 		// evaluate at leaf
-# 		if (d == 0) {
-# 			Object[] x = { evaluate(board), moveList.get(0) };
-# 			return x;
-# 		}
-# 		bestScore = myBest;
-# 		while (moveList.size() > 0) {
-# 			Board newBoard = new Board(board);
-# 			String newMove = moveList.get(0);
-# 			newBoard.placeMove(newBoard.nextPlayer, newMove, false);
-# 			temp = mmab(newBoard, d - 1, -theirBest, -bestScore);
-# 			tempScore = -(Double) temp[0];
-# 			if (tempScore > bestScore) {
-# 				bestScore = tempScore;
-# 				bestMove = newMove;
-# 			}
-# 			if (bestScore > theirBest) {
-# 				Object[] x = { bestScore, bestMove };
-# 				return x;
-# 			}
-# 			moveList.remove(0);
-# 		}
-# 		Object[] x = { bestScore, bestMove };
-# 		return x;
-# 	}
-# }
+        all_empty = board.filled_spaces(board.board, 0)
+        moves = sorted(list(set(all_empty).intersection(empty_neighbors)))
+
+        final_move_list = all_empty if not moves else moves
+
+        if depth == 0:
+            return self.evaluate(board, player), final_move_list[0]
+
+        move = None
+
+        while final_move_list:
+            new_move = choice(final_move_list)
+            temp_board = deepcopy(board)
+            temp_board.place_stone(-player, new_move)
+
+            if temp_board.victory():
+                return self.evaluate(board, player) + 26000000, new_move
+
+            temp = self.ab_pruning(temp_board, depth - 1, alpha, beta, -player)
+            temp_score = temp[0]
+
+            if player == -1:
+                if temp_score > alpha:
+                    alpha = temp_score
+                    move = new_move
+                if alpha >= beta:
+                    break
+            else:
+                if temp_score < beta:
+                    beta = temp_score
+                    move = new_move
+                if alpha >= beta:
+                    break
+
+            final_move_list.pop(0)
+
+        score = alpha if player == -1 else beta
+        return score, move
+
+    def evaluate(self, board, player):
+        """
+        Calculates a numeric 'score' for the board state given the
+        combinations with already placed stones.
+
+        In the case of Gomoku, one n-uple should always be worth more
+        than all the (n-1)-uples combined (that can be calculated through
+        simple combinatorics). Hence, choosing a value for the lowest n-uple
+        possible will drastically affect the bigger ones.
+
+        Args:
+            board:  a GomokuBoard object.
+            player: a integer representing a player.
+
+        Returns:
+            An integer that takes in account the groupings of stones
+            with the same color, representing their contribution to
+            a possible victory.
+        """
+        return sum(board.nuples_quantity(player, i) * j
+                   for i, j in zip([2, 3, 4], [1, 320, 94000]))

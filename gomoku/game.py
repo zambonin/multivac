@@ -8,12 +8,12 @@ Control logic for the Gomoku game and main class for the program.
 
 from gomoku_board import GomokuBoard
 from itertools import cycle
-from random import randint
+from minimax import Minimax
+from random import choice, randint
 
 
 def player_input(board, player):
 
-    print(board)
     while True:
         try:
             raw = input("Place {} on which x,y? ".format(board.stones[player]))
@@ -42,10 +42,19 @@ def game_loop(board, mode=None):
     if mode == 'exit':
         raise SystemExit
 
-    turn = cycle([1, -1])
+    turn = cycle(choice(([1, -1], [-1, 1])))
+    mmax = Minimax()
+
     while not board.victory():
         player = next(turn)
-        if player == -1 and mode == 'random':
+        print(board)
+        if mode == 'ai' and player == -1:
+            s, pos = mmax.ab_pruning(board, 2, float('-inf'),
+                                     float('inf'), player)
+        elif mode == 'shodan':
+            s, pos = mmax.ab_pruning(board, 2, float('-inf'),
+                                     float('inf'), player)
+        elif mode == 'random' and player == -1:
             pos = random_input(board)
         else:
             pos = player_input(board, player)
@@ -64,6 +73,8 @@ def main():
         "0": dict(desc="quit", mode='exit'),
         "1": dict(desc="human x human", mode='two_player'),
         "2": dict(desc="human x computer (random)", mode='random'),
+        "3": dict(desc="human x computer (AI)", mode='ai'),
+        "4": dict(desc="computer x computer", mode='shodan')
     }
 
     while True:
