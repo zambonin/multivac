@@ -35,14 +35,17 @@ class GomokuBoard():
         """Pretty-prints the board with black and white bullets."""
         os.system('cls' if os.name == 'nt' else 'clear')
 
-        top_row = '┏' + '━' * (2 * len(self.board[0]) + 1) + '┓\n'
-        bottom_row = '┗' + '━' * (2 * len(self.board[0]) + 1) + '┛'
+        letter_row = "     " + " ".join(
+                chr(i) for i in range(65, 65 + len(self.board[0]))) + '\n'
+        top_row = '   ┏' + '━' * (2 * len(self.board[0]) + 1) + '┓\n'
+        bottom_row = '   ┗' + '━' * (2 * len(self.board[0]) + 1) + '┛'
         mid_rows = ""
 
         for row, i in zip(self.board, range(len(self.board))):
-            mid_rows += '┃ ' + ' '.join([self.stones[i] for i in row]) + ' ┃\n'
+            mid_rows += '{:02d} ┃ '.format(i + 1) + ' '.join(
+                    self.stones[i] for i in row) + ' ┃\n'
 
-        return top_row + mid_rows + bottom_row
+        return letter_row + top_row + mid_rows + bottom_row
 
     def h_victory(self, board):
         """
