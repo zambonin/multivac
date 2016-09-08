@@ -17,21 +17,21 @@ def player_input(board, player):
 
     while True:
         try:
-            raw = input("Place {} on which coordinate? ".format(
+            raw = input("   Place {} on which coordinate? ".format(
                 board.stones[player]))
 
             raw = raw.upper() if raw else 'error'
             if raw[-1] in map(chr, range(65, 80)):
                 raw = raw[len(raw)-1:] + raw[:len(raw)-1]
 
-            valid_pos = fullmatch(r'[A-O]([1-9]|1[1-5])', raw)
-            pos = (ord(raw[:1]) - 65, int(raw[1:]) - 1)
+            valid_pos = fullmatch(r'[A-O](0?[1-9]|1[0-5])', raw)
+            pos = (int(raw[1:]) - 1, ord(raw[:1]) - 65)
 
             if len(pos) != 2 or not valid_pos or not board.is_empty_space(pos):
                 raise ValueError
             break
         except ValueError:
-            print("Invalid input.", end=' ')
+            print("   Invalid input.")
 
     return pos
 
