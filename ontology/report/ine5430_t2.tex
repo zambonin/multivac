@@ -1,0 +1,74 @@
+\documentclass{article}
+
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper, margin=1.5cm]{geometry}
+\usepackage[colorlinks, urlcolor=blue, citecolor=red]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\title{\textbf{Representação de conhecimento e raciocínio}}
+\author{Emmanuel Podestá Jr., Gustavo Zambonin\thanks{
+    \texttt{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br}} \\
+\small {Inteligência Artificial (UFSC -- INE5430)} \vspace{-5mm}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[label=\textbf{\arabic*})]
+
+    \item Redes semânticas são úteis para representar naturalmente relações
+        entre entidades; contudo, com um grande aumento nas tarefas a serem
+        resolvidas, tais relações podem tornar-se muito complexas. Com o
+        surgimento do conceito de orientação à objetos, muitas linguagens
+        começaram a adotar esse conceito. A área de inteligência artificial
+        também começou a utilizar deste paradigma, já que resolvia um de seus
+        maiores problemas existentes um método adequado para representar o
+        conhecimento, isto é, capturar informações sobre objetos. Note que
+        essa característica é inerente da programação orientada à objetos.
+        Desta forma, Minsky \cite{1975:MFS:980190.980222} desenvolveu uma
+        base para IA seguindo essa ideia. Assim, as relações entre as
+        entidades e os nodos começaram a parecer com frames para manter
+        conhecimento sobre tudo no sistema.
+
+    \item
+
+        \begin{enumerate}
+
+            \item De acordo com \cite[p. 23, 336]{Russell:2009:AIM:1671238},
+                sistemas de produção podem ser caracterizados como programas
+                que consomem conjuntos de regras sobre comportamento, na forma
+                de cláusulas em lógica de primeira ordem, com asserções
+                similares a construtos se-então ($\Rightarrow$), e produzem
+                inferências de acordo com este conhecimento. Similarmente,
+                sistemas especialistas também inferem de acordo com regras da
+                forma se-então; geralmente, um sistema especialista emprega um
+                motor de inferência na forma de um sistema de produção, para
+                processar as regras da base de conhecimento.
+
+            \item Sistemas especialistas podem ser utilizados em diversas
+                facetas da sociedade; exemplos encontrados após uma rápida
+                revisão bibliográfica (Google Scholar) incluem sistemas na
+                área de ciências biológicas (identificação de padrões em DNA,
+                e similaridades entre plantas); aprendizagem estudantil
+                (interação com agentes digitais para facilitar tal processo);
+                automação industrial (limite de temperatura para fornalhas em
+                uma metalúrgica); bolsas de valores (denotar valores para
+                investimentos e outras movimentações financeiras) etc.
+
+        \end{enumerate}
+
+    \item Uma melhor associação seria com IA forte, pois nessa representação
+        tem-se descrições simbólicas e manipulação destas; isto é, algo mais
+        conceitual e abstrato. O foco sobre o resultado final e a simulação
+        intermediária do conhecimento é diminuído, dando espaço para a
+        representação da informação sobre o domínio.
+
+\end{enumerate}
+
+\bibliography{ine5430_t2}
+\bibliographystyle{plain}
+
+\end{document}
