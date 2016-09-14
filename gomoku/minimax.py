@@ -50,7 +50,13 @@ class Minimax():
         final_move_list = all_empty if not moves else moves
 
         if depth == 0:
-            return self.evaluate(board, player), final_move_list[0]
+            try:
+                final_val = board.evaluate(board.board, -player)
+                if board.victory():
+                    final_val += 2**32
+                return final_val, final_move_list[0]
+            except IndexError:
+                raise SystemExit('Draw!')
 
         move = None
 
@@ -60,7 +66,7 @@ class Minimax():
             temp_board.place_stone(-player, new_move)
 
             if temp_board.victory():
-                return self.evaluate(board, player) + 26000000, new_move
+                return 2**32, new_move
 
             temp = self.ab_pruning(temp_board, depth - 1, alpha, beta, -player)
             temp_score = temp[0]
@@ -71,36 +77,14 @@ class Minimax():
                     move = new_move
                 if alpha >= beta:
                     break
-            else:
+            elif player == 1:
                 if temp_score < beta:
                     beta = temp_score
                     move = new_move
                 if alpha >= beta:
                     break
 
-            final_move_list.pop(0)
+            final_move_list.remove(new_move)
 
         score = alpha if player == -1 else beta
         return score, move
-
-    def evaluate(self, board, player):
-        """
-        Calculates a numeric 'score' for the board state given the
-        combinations with already placed stones.
-
-        In the case of Gomoku, one n-uple should always be worth more
-        than all the (n-1)-uples combined (that can be calculated through
-        simple combinatorics). Hence, choosing a value for the lowest n-uple
-        possible will drastically affect the bigger ones.
-
-        Args:
-            board:  a GomokuBoard object.
-            player: a integer representing a player.
-
-        Returns:
-            An integer that takes in account the groupings of stones
-            with the same color, representing their contribution to
-            a possible victory.
-        """
-        return sum(board.nuples_quantity(player, i) * j
-                   for i, j in zip([2, 3, 4], [1, 320, 94000]))

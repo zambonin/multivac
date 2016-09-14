@@ -30,6 +30,7 @@ class GomokuBoard():
         self.side = side
         self.board = [[0 for _ in range(side)] for _ in range(side)]
         self.stones = {0: ' ', 1: '●', -1: '○'}
+        self.factors = self.nuple_factors()
 
     def __str__(self):
         """Pretty-prints the board with black and white bullets."""
@@ -46,6 +47,32 @@ class GomokuBoard():
                     self.stones[i] for i in row) + ' ┃\n'
 
         return letter_row + top_row + mid_rows + bottom_row
+
+    def nuple_factors(self, default=0.1):
+        """
+        Produces the right factors given a 1-uple initial value. In the case
+        of Gomoku, one n-uple should always be worth more than all the
+        (n-1)-uples combined. Hence, choosing a value for the lowest n-uple
+        possible will drastically affect the bigger ones.
+
+        15 - n + 1 is the number of n-uples with the same color consecutively
+        in a row; there are three axis (horizontal, vertical and diagonal);
+        and about 7.5 rows (112~113 maximum stones for a given player, divided
+        by 15 rows).
+
+        Args:
+            default:    value of a single piece in the board matrix
+                        representation.
+
+        Returns:
+            Dictionary with length of n-uple as key and its
+            multiplicative factor as value.
+        """
+        factors = [default]
+        for i in range(2, 5):
+            factors += [round((15 - i + 1) * 3 * 7.5 * factors[i-2:i-1][0])]
+
+        return {i+1 : j for i, j in enumerate(factors)}
 
     def h_victory(self, board):
         """
@@ -239,73 +266,97 @@ class GomokuBoard():
 
         return list(chain.from_iterable(_list))
 
-    def row_nuples(self, board, player, n):
+    def row_values(self, board, player):
         """
-        Sweeps the rows of the board matrix looking for groupings of stones
-        with the same color.
+        Calculates a numeric 'score' for the board state given
+        the horizontally aligned stones of the same color.
+
+        This calculation takes in account consecutive groupings
+        (n-uples), n-uples (with n > 3) that need only one stone
+        to be completed, generally in the middle, and how many
+        "open sides" there are for a combination.
 
         Args:
             board:  the matrix representation for the board.
-            player: a integer representing the player.
-            n:      length of groupings.
+            player: a integer representing a player.
 
         Returns:
-            Quantity of horizontal n-uples played by some player.
+            An integer that reflects these factors.
         """
-        qnt = 0
-        for row in board:
-            lengths = [(piece, sum(1 for _ in group))
+        open_sides = {2: 1, 1: 1/2, 0: 0.1}
+        value = 0
+
+        for row in (i for i in board if sum(i)):
+            row = [2] + list(row) + [2]
+            lengths = [[piece, sum(1 for _ in group)]
                        for piece, group in groupby(row)]
-            qnt += len([i for i in lengths if i[0] == player and i[1] == n])
 
-        return qnt
+            for i in range(1, len(lengths) - 1):
+                n = lengths[i - 1][0] == 0 + lengths[i + 1][0] == 0
+                if (lengths[i] == [0, 1] and
+                   lengths[i - 1][1] + lengths[i + 1][1] >= 4 and
+                   lengths[i - 1][0] == lengths[i + 1][0] == player):
+                    return 2**32
+                elif lengths[i][0] == player:
+                    if lengths[i][1] >= 4 and n:
+                        return 2**32
+                    else:
+                        value += (self.factors[lengths[i][1]] *
+                                  open_sides[n])
 
-    def col_nuples(self, board, player, n):
+        return value
+
+    def col_values(self, board, player):
         """
-        Sweeps the columns of the board matrix looking for groupings of stones
-        with the same color.
+        Calculates a numeric 'score' for the board state given
+        the vertically aligned stones of the same color.
 
         Args:
             board:  the matrix representation for the board.
-            player: a integer representing the player.
-            n:      length of groupings.
+            player: a integer representing a player.
 
         Returns:
-            Quantity of vertical n-uples played by some player.
+            An integer that reflects these factors.
         """
-        return self.row_nuples(zip(*board), player, n)
+        return self.row_values(zip(*board), player)
 
-    def diag_nuples(self, board, player, n):
+    def diag_values(self, board, player):
         """
-        Sweeps the diagonals of the board matrix looking for groupings of
-        stones with the same color.
+        Calculates a numeric 'score' for the board state given
+        the diagonally aligned stones of the same color.
 
         Args:
             board:  the matrix representation for the board.
-            player: a integer representing the player.
-            n:      length of groupings.
+            player: a integer representing a player.
 
         Returns:
-            Quantity of diagonal n-uples played by some player.
+            An integer that reflects these factors.
         """
-        return (self.row_nuples(self.diagonals(board), player, n) +
-                self.row_nuples(self.antidiagonals(board), player, n))
+        return (self.row_values(self.diagonals(board), player) +
+                self.row_values(self.antidiagonals(board), player))
 
-    def nuples_quantity(self, player, n):
+    def evaluate(self, board, player):
         """
-        Sweeps the entire board matrix looking for groupings of stones with
-        the same color.
+        Calculates a numeric 'score' for the board state given the
+        combinations with already placed stones.
+
+        In the case of Gomoku, one n-uple should always be worth more
+        than all the (n-1)-uples combined (that can be calculated through
+        simple combinatorics). Hence, choosing a value for the lowest n-uple
+        possible will drastically affect the bigger ones.
 
         Args:
-            player: a integer representing the player.
-            n:      length of groupings.
+            board:  the matrix representation for the board.
+            player: a integer representing a player.
 
         Returns:
-            Quantity of n-uples played by some player throughout the board.
+            An integer that takes in account the groupings of stones
+            with the same color, representing their contribution to
+            a possible victory.
         """
-        return (self.row_nuples(self.board, player, n) +
-                self.col_nuples(self.board, player, n) +
-                self.diag_nuples(self.board, player, n))
+        return (self.row_values(board, player) +
+                self.col_values(board, player) +
+                self.diag_values(board, player))
 
     def rnd_board(self):
         """
