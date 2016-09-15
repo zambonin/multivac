@@ -50,13 +50,12 @@ class Minimax():
         final_move_list = all_empty if not moves else moves
 
         if depth == 0:
-            try:
-                final_val = board.evaluate(board.board, player)
-                if board.victory():
-                    final_val += 2**32
-                return final_val, final_move_list[0]
-            except IndexError:
+            final_val = board.evaluate(board.board, player)
+            if len(final_move_list) == 0 or board.draw():
                 raise SystemExit('Draw!')
+            if board.victory():
+                final_val += 2**32
+            return final_val, final_move_list[0]
 
         move = None
 

@@ -230,9 +230,9 @@ class GomokuBoard():
             neighbors += list(starmap(lambda a, b: (x + a, y + b),
                                       product((0, -i, +i), (0, -i, +i))))
 
-        valid = [i for i in neighbors if all((0 <= j < self.side) for j in i)]
-
-        return list(set(valid) - set([position]))
+        return list(filter(
+            lambda x: x != position and all((0 <= j < self.side) for j in x),
+            neighbors))
 
     def empty_neighbors(self, board, position, radius):
         """
@@ -301,8 +301,7 @@ class GomokuBoard():
                     if lengths[i][1] >= 4 and n:
                         return 2**32
                     else:
-                        value += (self.factors[lengths[i][1]] *
-                                  open_sides[n])
+                        value += (self.factors[lengths[i][1]] * open_sides[n])
 
         return value
 
