@@ -51,7 +51,7 @@ class Minimax():
 
         if depth == 0:
             try:
-                final_val = board.evaluate(board.board, -player)
+                final_val = board.evaluate(board.board, player)
                 if board.victory():
                     final_val += 2**32
                 return final_val, final_move_list[0]
@@ -63,7 +63,7 @@ class Minimax():
         while final_move_list:
             new_move = choice(final_move_list)
             temp_board = deepcopy(board)
-            temp_board.place_stone(-player, new_move)
+            temp_board.place_stone(player, new_move)
 
             if temp_board.victory():
                 return 2**32, new_move
