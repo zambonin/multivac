@@ -5,7 +5,12 @@
 \usepackage[a4paper, margin=1.5cm]{geometry}
 \usepackage[colorlinks, urlcolor=blue, citecolor=red]{hyperref}
 \usepackage[utf8]{inputenc}
-\usepackage{mathtools}
+\usepackage{amsmath}
+
+\newcommand{\pslice}{\url{https://docs.python.org/3/glossary.html\#term-slice}}
+\newcommand{\punpack}{\url{https://docs.python.org/3/tutorial/controlflow.html\#unpacking-argument-lists}}
+\newcommand{\plist}{\url{https://docs.python.org/3/tutorial/datastructures.html\#list-comprehensions}}
+\newcommand{\piter}{\url{https://docs.python.org/3/library/itertools.html}}
 
 \title{\textbf{Poda $\alpha$-$\beta$ aplicada em \textit{gomoku}}}
 \author{Emmanuel Podestá Jr., Gustavo Zambonin\thanks{
@@ -25,34 +30,66 @@
 
         A função heurística $H(T)$, onde $T$ é um nodo do grafo que
         caracteriza um tabuleiro do jogo \textit{gomoku}, foi definida como
-        a soma da quantidade de $n$-uplas, $n \in \{2, 3, 4\}$. Tomando $v_n$
-        como cada uma destas somas, é possível calcular $v_{n + 1}$,
-        assumindo alguns fatos na construção do raciocínio: 
+        a soma da quantidade de $n$- uplas, $n \in \{1, 2, 3, 4\}$, afetadas
+        por certos fatores multiplicativos.
+
+        Tais fatores derivam-se do que pode ser identificado como `'boas`'
+        característica da organização de peças de um determinado jogador:
+        alinhamento em algum eixo, falta de obstrução pelo adversário e
+        tamanho da $n$-upla.
+
+        A obstrução é codificada como um fator que altera gravemente o valor
+        do tabuleiro caso uma $n$-upla não consiga ser estendida pelo jogador
+        -- ou seja, se existirem peças do adversário em cada um dos lados
+        de modo a impossibilitar essas jogadas. Caso apenas um dos lados
+        esteja bloqueado, a punição não é tão severa. Pode ser representada
+        como
+        \begin{align*}
+            s(x) =
+            \begin{cases}
+                1 \text{ if } x = 2 \\
+                \frac{1}{2} \text{ if } x = 1 \\
+                \frac{1}{10} \text{ if } x = 0
+            \end{cases}
+        \end{align*}
+
+        onde $n$ é o número de lados disponíveis para jogada.
+
+        $n$-uplas alinhadas recebem valores de acordo com seu tamanho. Tomando
+        $v_n$ como o valor de uma $n$-uplas de tamanho $n$, é possível
+        calcular $v_{n + 1}$, assumindo alguns fatos na construção do
+        raciocínio:
         
         \begin{itemize}
         
             \item $v_{n + 1} > \sum v_n$, para que o algoritmo sempre busque
                 construir as maiores $n$-uplas;
                 
-            \item um valor inicial para $v_2$, a menor $n$-upla que a função
-                considera; 
+            \item um valor inicial não-nulo para $v_1$, a menor $n$-upla que a
+                função considera;
                 
             \item existem $15 - n + 1$ possíveis arranjos de elementos
                 consecutivos com o mesmo valor em uma palavra binária de
                 tamanho $15$; 
                 
             \item $\lceil \frac{15^2}{2} \rceil = 113$ é o maior número
-                de peças de um jogador num tabuleiro, o que implica 
+                de peças de um jogador num tabuleiro, o que implica em
                 $\frac{113}{15} \approx 7.5$ linhas de peças iguais;
                 
-            \item e existem 3 orientações onde um arranjo pode ser considerado
+            \item existem 3 orientações onde um arranjo pode ser considerado
                 como $n$-upla.
 
         \end{itemize}
 
         Então, $v_{n+1} = \sum v_n \times 3 \times 7.5 \times 113 \times
-        (15 - n + 1)$, e a função heurística é definida como
-        $H(T) = \sum_{n=2}^4 v_n$.
+        (15 - n + 1)$, e assim tem-se os valores para cada uma das $n$-uplas.
+        Codificando este cálculo como uma função $v(t) = v_n$, onde $t$ é uma
+        $n$-upla de tamanho $n$ dentro do tabuleiro $T$, tem-se então a função
+        heurística final
+        \begin{equation*}
+        H(T) = \displaystyle\sum_{n=1}^4 v(t) * s(x), \forall t \in T
+        \end{equation*}
+        onde $x$ é obtido analisando as peças adjacentes à $n$-upla.
 
         A função de utilidade foi definida de forma semelhante, levando em
         conta a dificuldade de representar todos os nodos possíveis do grafo
@@ -60,14 +97,16 @@
         necessário especificar uma profundidade limite para o algoritmo
         minimax. Este fato dificulta a introdução de um fator heurístico
         relacionado à profundidade do grafo, pois seria custoso armazenar
-        e processar tal informação ao longo da execução do algoritmo. Então,
-        tomando $U(T)$ como a função utilidade, estendeu-se a análise de
-        $n$-uplas até $n = 5$, o que significa $U(T) = \sum_{n=2}^5 v_n$.
+        e processar tal informação ao longo da execução do algoritmo.
 
-        Modificações importantes na heurística ainda devem ser inseridas,
-        como avaliar bloqueio de $n$-uplas por peças do adversário,
-        e verificar casos onde existem grupos separados de $n$-uplas que
-        podem levar a uma quíntupla com apenas uma jogada.
+        Então, tomando $U(T)$ como a função utilidade, estendeu-se a análise
+        de $n$-uplas para $n = 5$, aumentando a pontuação final do tabuleiro
+        com um grande valor caso tal $n$-upla exista. Assim,
+        \begin{equation*}
+        U(T) = \displaystyle\sum_{n=1}^5 v(t) * s(x), \forall t \in T
+        \end{equation*}
+        onde o grande valor obtido quando encontra-se uma $5$-upla apontará
+        corretamente a importância do nodo, que neste caso é vitorioso.
 
     \item \textbf{Otimizações e estratégias}
 
@@ -92,10 +131,98 @@
         essa verificação é aplicada e $U(T)$ é chamada caso o resultado
         seja verdadeiro. De modo similar, sequências são verificadas com
         uma variante do método acima que observa apenas $n$-uplas de um
-        jogador e tamanho específicos. O funcionamento específico tem
-        base em \texttt{itertools.groupby} da linguagem Python, que
-        agrupa símbolos semelhantes e sua quantidade em um objeto iterável,
-        como uma lista.
+        jogador e tamanho, fornecidos como argumentos. Note que este método
+        não necessariamente busca por $n$-uplas com peças consecutivas, e
+        pode identificar sequências com um espaço vazio como boas jogadas. O
+        funcionamento específico tem base em \texttt{itertools.groupby} da
+        linguagem Python, que agrupa símbolos semelhantes e sua quantidade em
+        um objeto iterável, como uma lista.
+
+    \item \textbf{Decisões de projeto}
+
+        A implementação foi dividida em três classes, cada qual com sua
+        função imutável:
+
+        \begin{itemize}
+
+            \item \texttt{game.py} é responsável pela parte de acesso aos
+                modos de jogo e validade das entradas, bem como todo o fluxo
+                de controle, comunicando-se com o tabuleiro e chamando métodos
+                necessários para que jogadores humanos e artificial possam
+                progredir no jogo.
+
+            \item \texttt{gomoku\_board.py} é uma implementação simples de um
+                tabuleiro para um jogo de \textit{gomoku}, com métodos
+                variados para suportar a integração com um algoritmo de busca
+                de decisão, utilizando vários recursos da linguagem escolhida, 
+                tais como \textit{slices}\footnote{\pslice},
+				\textit{unpacking}\footnote{\punpack} e
+                \textit{list comprehensions}\footnote{\plist}, bem como várias
+				funções nativas (em especial, a biblioteca
+                \texttt{itertools}\footnote{\piter}).
+
+            \item \texttt{minimax.py} é responsável por construir árvores de
+                possibilidades dinamicamente, dado o tabuleiro atual, com
+                uma profundidade escolhida previamente, e decidir qual será
+                a melhor jogada possível respeitando as funções heurística e
+                utilidade. A análise de vitória é feita em todo nodo e não
+                apenas nos que são folhas, pois tal situação pode acontecer
+                em nodos que são pais; apenas as posições vazias e vizinhas
+                às peças de ambos os jogadores são avaliadas, pois deseja-se
+                bloquear o jogador adversário e, ao mesmo tempo, as peças do
+                jogador atual geralmente estão adjacentes.
+
+        \end{itemize}
+
+    \item \textbf{Limitações}
+
+        \begin{itemize}
+
+            \item As cores representando os jogadores foram fixadas em virtude
+                da falta de abstração na identificação de quem fará a
+                maximização e minimização; assim, a peça de cor branca sempre
+                iniciará, e esta representa o jogador humano.
+
+            \item O desempenho é um problema real, em virtude de todas as
+                possibilidades calculadas no algoritmo minimax; seu gargalo
+                apresenta-se na função \texttt{neighbor\_board}, pois é
+                necessário verificar quais são os espaços válidos ao redor de
+                uma dada coordenada a partir do raio desejado e filtrá-los de
+                modo que tais espaços possam formar $n$-uplas úteis para o
+                jogador.
+
+            \item A profundidade escolhida para o algoritmo minimax também
+                implica diretamente em quão rapidamente o jogador artificial
+                fará sua jogada, e deve-se escolher um valor ótimo para que o
+                algoritmo não demore demais, mas as jogadas ainda sejam
+                plausíveis.
+
+            \item A heurística poderia ser refinada para levar em conta a
+                profundidade da árvore, porém isso implicaria em uma grande
+                mudança na implementação do algoritmo minimax, e portanto a
+                sugestão foi descartada.
+
+        \end{itemize}
+
+    \item \textbf{Principais métodos}
+
+        \begin{itemize}
+
+            \item \texttt{minimax.py:ab\_pruning()} implementa o algoritmo
+                minimax com poda.
+
+            \item \texttt{gomoku\_board.py:neighbor\_board()} verifica
+                vizinhos de uma dada coordenada utilizando
+                \texttt{itertools.starmap} para gerar todas as coordenadas
+                válidas no formato de "estrela", e filtra posições válidas
+                através de uma função anônima.
+
+            \item \texttt{gomoku\_board.py:row\_values()} calcula o valor
+                (heurístico) de uma lista de listas de coordenadas; pode ser
+                reutilizado para todos os eixos, dado que a construção de tais
+                listas sejam corretas.
+
+        \end{itemize}
 
 \end{itemize}
 
