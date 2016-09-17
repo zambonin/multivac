@@ -353,9 +353,12 @@ class GomokuBoard():
             with the same color, representing their contribution to
             a possible victory.
         """
-        return (self.row_values(board, player) +
-                self.col_values(board, player) +
-                self.diag_values(board, player))
+        value = 0
+        for i in ('row', 'col', 'diag'):
+            func = getattr(self, '{}_values'.format(i))
+            value += func(board, player) - func(board, -player)
+
+        return value
 
     def rnd_board(self):
         """
