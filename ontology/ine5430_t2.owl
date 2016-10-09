@@ -1,0 +1,1910 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#"
+     xml:base="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Human"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#is_friend -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#is_friend">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Human"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aqua_Master -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aqua_Master">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eel"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Frog"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Red_Flies"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Sea_Bass"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bad_Fisherman -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bad_Fisherman">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bamboo_Fishing_Rod"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bamboo_Fishing_Rod -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bamboo_Fishing_Rod">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Frog"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Blue_Marlin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Blue_Marlin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Sea_Bass"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Claudine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Claudine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Red_Flies"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Liberl_Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pearlglass"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dynatrad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dynatrad">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eel"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pearlglass"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rainbow_Trout"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rockeater"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Tiger_Rockfish"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eats_All -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eats_All">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eats_a_Fish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eats_a_Fish">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eats_not_Fish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eats_not_Fish">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Frog -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Frog">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pearlglass"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rockeater"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Snakehead"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Valleria_Bass"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Garvelze -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Garvelze">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eel"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gigangora -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gigangora">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Sea_Bass"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gold_Angelfish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gold_Angelfish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Good_Fisherman -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Good_Fisherman">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aqua_Master"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lakelord_II"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Metal_Trident_Rod"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Granakor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Granakor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Great_Blackfish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Great_Blackfish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Human -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Human">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lakelord_II -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lakelord_II">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Sea_Bass"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Liberl_Carp -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Liberl_Carp">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Red_Flies"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Mahi-mahi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Mahi-mahi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Sea_Bass"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Marine_Star -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Marine_Star">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Medium_Fisherman -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Medium_Fisherman">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Marine_Star"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Piscis_Heart"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Progress_Rod"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Metal_Trident_Rod -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Metal_Trident_Rod">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Sea_Bass"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Octopus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Octopus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pearlglass -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pearlglass">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Frog"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Piscis_Heart -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Piscis_Heart">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Red_Flies"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Claudine"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gold_Angelfish"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Great_Blackfish"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Progress_Rod -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Progress_Rod">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rainbow_Trout -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rainbow_Trout">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Red_Flies -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Red_Flies">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Liberl_Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Tiger_Rockfish"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pearlglass"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rockeater"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Liberl_Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rainbow_Trout"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rockeater"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Tiger_Rockfish"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rockeater -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rockeater">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Frog"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rainbow_Trout"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rockeater"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Sea_Bass -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Sea_Bass">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Claudine"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gold_Angelfish"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Great_Blackfish"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Octopus"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Sea_Bass"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Snakehead -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Snakehead">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eel"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Frog"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Tiger_Rockfish -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Tiger_Rockfish">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Red_Flies"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Red_Flies"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Valleria_Bass -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Valleria_Bass">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Frog"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Red_Flies"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aeondith -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aeondith">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lakelord_II"/>
+        <can_use_bait rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Glenn"/>
+        <can_use_bait rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bambii -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bambii">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bamboo_Fishing_Rod"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carian -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carian">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Octopus"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Mike"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shin"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Cerb -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Cerb">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Piscis_Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Chaet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Chaet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Cray -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Cray">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Douglas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Douglas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Octopus"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Zé"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Estelle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Estelle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
+        <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV"/>
+        <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV_2"/>
+        <is_friend rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Joshua"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fifi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fifi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Valleria_Bass"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Zé"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Foreign_Individual -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Foreign_Individual">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Oni"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gary -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gary">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Ghinn -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Ghinn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Chaet"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Ghuntin -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Ghuntin">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Mike"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Oni"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Glenn -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Glenn">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gonn -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gonn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <catch rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fifi"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Hades -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Hades">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Piscis_Heart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Jim -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Jim">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
+        <catch rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Zé"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Joe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Joe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
+        <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Cerb"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Joshua -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Joshua">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
+        <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Cerb"/>
+        <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Hades"/>
+        <is_friend rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Scherazard"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lira -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lira">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Panda"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lola -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lola">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkII -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkII">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aqua_Master"/>
+        <can_use_bait rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Poly"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aqua_Master"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV_2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aqua_Master"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Mike -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Mike">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Poly"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nami -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nami">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <catch rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Neptune -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Neptune">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Metal_Trident_Rod"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nick -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nick">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
+        <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aeondith"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nigiri -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nigiri">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings"/>
+        <catch rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nini -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nini">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
+        <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bambii"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nino -->
+
+    <owl:Thing rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nino">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkII"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Oni -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Oni">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Panda -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Panda">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bamboo_Fishing_Rod"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Poly -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Poly">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Scherazard -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Scherazard">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
+        <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Panda"/>
+        <is_friend rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Estelle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shin -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Triton -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Triton">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Metal_Trident_Rod"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Zé -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Zé">
+        <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
+        <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Chaet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Oni"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Poly"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

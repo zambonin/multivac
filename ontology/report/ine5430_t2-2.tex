@@ -1,0 +1,85 @@
+\documentclass{article}
+
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper, margin=1.5cm]{geometry}
+\usepackage[colorlinks, urlcolor=blue, citecolor=red]{hyperref}
+\usepackage[utf8]{inputenc}
+
+\title{\textbf{Representação de conhecimento e raciocínio}}
+\author{Emmanuel Podestá Jr., Gustavo Zambonin\thanks{
+        \texttt{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br} \hfill
+        \texttt{\href{https://github.com/zambonin/ufsc-ine5430}{src/}}
+    } \\ \
+    \small{Inteligência Artificial (UFSC -- INE5430)}
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+    \item \textbf{Diferença entre axiomas}
+
+        O axioma \texttt{SubClassOf} determina que uma classe $c_1$ é
+        subclasse de uma classe $c_2$. Mais especificamente, $c_1$ é uma
+        especialização de $c_2$. Desta forma, $c_2$ irá herdar todas as
+        características de $c_1$, contudo $c_1$ não terá, necessariamente, as
+        características de $c_2$.
+
+        No domínio deste trabalho, a classe \texttt{Dumplings} é subclasse
+        de \texttt{Bait}, herdando suas características e adicionando as
+        seguintes: \texttt{(catch only Carp) or (catch only Liberl\_Carp) or
+        (catch only Pearlglass)}.
+
+        O axioma \texttt{EquivalentTo} significa que todas as expressões de
+        uma classe são equivalentes entre si. Isto possibilita o uso de
+        sinônimos entre classes; logo, se $c_1$ for equivalente à $c_2$, ambas
+        as classes possuirão as mesmas características.
+
+        No domínio deste trabalho, a classe \texttt{Fisherman} é equivalente
+        a \texttt{(can\_use only Rods) and (can\_use max 1 Rods)}.
+
+    \item \textbf{Motor de inferência \emph{HermiT}}
+
+        Para explicar o funcionamento do motor de inferência \emph{Hermit}, é
+        necessário apresentar o método dos \emph{tableaux} analíticos. De modo
+        a acelerar o processo de verificação de uma fórmula lógica, é possível
+        analisar apenas a sua estrutura exterior e aplicar axiomas
+        apropriados, que partem da seguinte estratégia: é mais fácil derivar
+        contradições para uma fórmula do que provar que todos os seus casos
+        são verdadeiros. Assim, tal método sintetiza esta técnica, manipulando
+        sintaticamente a fórmula lógica inicial e construindo uma árvore de
+        possibilidades, que podem ser contraditórias entre si, assim
+        simplificando o resultado final. \cite{Constable:2012}
+
+        O cálculo \emph{tableau} é um conjunto de regras que ditam como o
+        \emph{tableau} pode ser modificado, ou seja, quais axiomas podem ser
+        utilizados na construção da árvore de possibilidades. O motor
+        \emph{HermiT} \cite{smh08HermiT}, propõe um novo tipo de cálculo com
+        diversas otimizações, de modo a diminuir o ônus causado pela
+        complexidade de ontologias, assim conseguindo classificar uma grande
+        variedade de modelos.
+
+    \item \textbf{Descrição do domínio}
+
+        O domínio escolhido para este trabalho consiste na modelagem da
+        dinâmica de pescaria do jogo \emph{The Legend of Heroes: Trails in the
+        Sky Second Chapter}, onde existem varas de pescar que podem utilizar
+        apenas alguns tipos de iscas, iscas que só atraem alguns tipos de
+        peixes, e peixes que podem ser iscas para outras espécies. Foram
+        também adicionadas classes de pescadores de acordo com sua habilidade,
+        traduzida pela capacidade de utilizar um conjunto de varas de pescar
+        específico. O motor de inferência consegue classificar corretamente
+        todas as entidades que podem utilizar uma vara de pescar como humanos
+        e pescadores, entidades que `'pescam`' outras como iscas ou peixes,
+        e completar uma relação de amizade simétrica.
+
+\end{itemize}
+
+\bibliography{ine5430_t2-2}
+\bibliographystyle{plain}
+
+\end{document}
