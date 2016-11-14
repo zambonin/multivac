@@ -99,8 +99,9 @@ while True:
 	x_md = fuzz.trimf(x_dist, [0.2, 0.5, 0.8])
 	x_hi = fuzz.trimf(x_dist, [0.6, 1, 1])
 
-	y_lo = fuzz.trimf(y_dist, [0, 0, 0.8])
-	y_hi = fuzz.trimf(y_dist, [0.2, 1, 1])
+	y_lo = fuzz.trimf(y_dist, [0, 0, 0.5])
+	y_hi = fuzz.trimf(y_dist, [0.2, 0.5, 0.8])
+	
 
 	rot_straight = fuzz.trimf(rot_dist, [-5, 0, 5])
 	rot_left = fuzz.trimf(rot_dist, [-20, -10, 0])
@@ -171,9 +172,6 @@ while True:
 	rot_level_right = fuzz.interp_membership(rot_dist, rot_right, rot)
 	rot_level_veryR = fuzz.interp_membership(rot_dist, rot_veryRight, rot)
 
-	# OR
-	# active_rule1 = np.fmax(qual_level_lo, serv_level_lo)
-	# tip_activation_md = np.fmin(serv_level_md, tip_md)
 
 	# Rule 1
 	# Car is at left, far away with rotation angle turned to left.
