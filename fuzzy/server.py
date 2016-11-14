@@ -102,7 +102,7 @@ while True:
 	y_lo = fuzz.trimf(y_dist, [0, 0, 0.8])
 	y_hi = fuzz.trimf(y_dist, [0.2, 1, 1])
 
-	rot_straight = fuzz.trimf(rot_dist, [-2, 0, 2])
+	rot_straight = fuzz.trimf(rot_dist, [-5, 0, 5])
 	rot_left = fuzz.trimf(rot_dist, [-20, -10, 0])
 	rot_right = fuzz.trimf(rot_dist, [0, 10, 20])
 	rot_veryRight = fuzz.trimf(rot_dist, [10, 30, 30])
@@ -304,20 +304,27 @@ while True:
 	# Rule 22
 	# Car is center and with right angle.
 	active_rule22 = np.fmin(x_level_md, rot_level_right)
-	# Car turn very_right.
-	intensity_activation22 = np.fmin(active_rule22, intensity_lower)
+	# Car turn left.
+	intensity_activation22 = np.fmin(active_rule22, intensity_medium)
 
 	# Rule 23
 	# Car is right and with very left angle.
 	active_rule23 = np.fmin(x_level_hi, rot_level_veryL)
 	# Car turn very_left.
-	intensity_activation23 = np.fmin(active_rule23, intensity_lower)
+	intensity_activation23 = np.fmin(active_rule23, intensity_higher)
 
 	# Rule 24
 	# Car is right and with very right angle.
 	active_rule24 = np.fmin(x_level_hi, rot_level_veryR)
-	# Car turn the minimum possible.
-	intensity_activation24 = np.fmin(active_rule24, intensity_none)
+	# Car turn the very_left.
+	intensity_activation24 = np.fmin(active_rule24, intensity_lower)
+
+	# Rule 25
+	# Car is center and with left angle.
+	active_rule25 = np.fmin(x_level_hi, rot_level_left)
+	# Car turn the very right.
+	intensity_activation25 = np.fmin(active_rule25, intensity_medium)
+
 
 	intensity0 = np.zeros_like(intensity)
 
@@ -343,8 +350,9 @@ while True:
 						 np.fmax(intensity_activation20,
 						 np.fmax(intensity_activation21,
 						 np.fmax(intensity_activation22,
-						 np.fmax(intensity_activation23, intensity_activation24)
-						))))))))))))))))))))))
+						 np.fmax(intensity_activation23,
+						 np.fmax(intensity_activation24, intensity_activation25)
+						)))))))))))))))))))))))
 
 	intensity_res = fuzz.defuzz(intensity, aggregated, 'centroid')
 	print(intensity_res)
