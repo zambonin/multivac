@@ -79,7 +79,7 @@ while True:
 	y_dist = np.arange(0, 1.1, 0.1)
 	rot_dist = np.arange(-31, 31, 1)
 
-	intensity = np.arange(-1, 1, 0.1)
+	intensity = np.arange(-1, 1, 0.25)
 	# r_power = np.arange(-1, 1, 0.25)
 
 	# Generate fuzzy membership functions
@@ -96,14 +96,14 @@ while True:
 	# r_power_hi = fuzz.trimf(r_power, levels[2])
 
 	x_lo = fuzz.trimf(x_dist, [0, 0, 0.3])
-	x_md = fuzz.trimf(x_dist, [0.2, 0.5, 0.8])
+	x_md = fuzz.trimf(x_dist, [0.2, 0.5, 0.7])
 	x_hi = fuzz.trimf(x_dist, [0.6, 1, 1])
 
 	y_lo = fuzz.trimf(y_dist, [0, 0, 0.5])
-	y_hi = fuzz.trimf(y_dist, [0.2, 0.5, 0.8])
-	
+	y_hi = fuzz.trimf(y_dist, [0.2, 1, 1])
 
-	rot_straight = fuzz.trimf(rot_dist, [-5, 0, 5])
+
+	rot_straight = fuzz.trimf(rot_dist, [-4, 0, 4])
 	rot_left = fuzz.trimf(rot_dist, [-20, -10, 0])
 	rot_right = fuzz.trimf(rot_dist, [0, 10, 20])
 	rot_veryRight = fuzz.trimf(rot_dist, [10, 30, 30])
@@ -303,13 +303,13 @@ while True:
 	# Car is center and with right angle.
 	active_rule22 = np.fmin(x_level_md, rot_level_right)
 	# Car turn left.
-	intensity_activation22 = np.fmin(active_rule22, intensity_medium)
+	intensity_activation22 = np.fmin(active_rule22, intensity_low)
 
 	# Rule 23
 	# Car is right and with very left angle.
 	active_rule23 = np.fmin(x_level_hi, rot_level_veryL)
 	# Car turn very_left.
-	intensity_activation23 = np.fmin(active_rule23, intensity_higher)
+	intensity_activation23 = np.fmin(active_rule23, intensity_low)
 
 	# Rule 24
 	# Car is right and with very right angle.
@@ -319,9 +319,9 @@ while True:
 
 	# Rule 25
 	# Car is center and with left angle.
-	active_rule25 = np.fmin(x_level_hi, rot_level_left)
-	# Car turn the very right.
-	intensity_activation25 = np.fmin(active_rule25, intensity_medium)
+	active_rule25 = np.fmin(x_level_md, rot_level_left)
+	# Car turn the right.
+	intensity_activation25 = np.fmin(active_rule25, intensity_high)
 
 
 	intensity0 = np.zeros_like(intensity)
