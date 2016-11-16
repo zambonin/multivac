@@ -1,0 +1,9 @@
+A fuzzy driver for a virtual truck. Run `java -jar fuzzy_truck_contest.jar`
+and click "Iniciar/Reiniciar" to start the socket. Then, run this program
+and it will try its best to park the truck.
+
+Install the needed Python packages with
+
+    # pip install -r requirements.txt
+
+One may need also need to install the `tk` package.
