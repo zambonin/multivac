@@ -1,6 +1,22 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+"""truck_driver.py
+
+A fuzzy driver for a virtual truck. Run `java -jar fuzzy_truck_contest.jar`
+and click "Iniciar/Reiniciar" to start the socket. Then, run this program
+and it will try its best to park the truck.
+
+    * `skfuzzy.defuzz` is the defuzzification function,
+        using the centroid method;
+    * `skfuzzy.interp_membership` finds the degree of membership
+        for a given variable using linear interpolation;
+    * `skfuzzy.trimf` is the triangular membership function generator.
+    * Information about the `socket` parameters can be found here [1].
+
+[1] http://man7.org/linux/man-pages/man2/socket.2.html
+"""
+
 import socket
 import matplotlib.pyplot as plt
 
@@ -11,19 +27,33 @@ from sys import argv
 
 
 def _min(_list):
+    """
+    Shorter way of minimizing variables and vectors.
+
+    Args:
+        _list:  a list with floating point numbers and a vector as its last
+                member. Within this context, these are informations about the
+                truck and how much it should turn.
+
+    Returns:
+        A NumPy array with the smallest numbers between the first arguments
+        and the vector coordinate it is being compared to.
+    """
     return fmin(fmin.reduce(_list[:-1]), _list[-1])
 
 
-def make_connection(host="127.0.0.1", port=4321):
-    sckt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sckt.connect((host, port))
-    server = sckt.makefile()
-
-    return sckt, server
-
-
 def normalize_angle(angle):
+    """
+    Normalizes from [0, 360] to [-30, 30].
+
+    Args:
+        angle:  the number to be normalized.
+
+    Returns:
+        The normalized number.
+    """
     rotation = floor(((angle + 90) % 360.0) - 180.0)
+
     if (rotation > 30):
         rotation = 30
     if (rotation < -30):
@@ -33,6 +63,7 @@ def normalize_angle(angle):
 
 
 def plot_fuzzy_sets():
+    """Shows the fuzzy sets constructed below in pretty colors."""
     fig, (ax0, ax1, ax2, ax3) = plt.subplots(nrows=4, figsize=(8, 9))
 
     ax0.plot(x_dist, x_lo, 'b', linewidth=1.5, label='Left')
@@ -73,8 +104,15 @@ def plot_fuzzy_sets():
 
 
 def drive_truck():
-
-    sckt, server = make_connection()
+    """
+    Connects to a server that provides a truck to be driven; sends a message
+    to the server asking for data, and then processes it according to the
+    membership functions. Finally, a reply is sent containing a number in
+    the range [-1, 1] that turns the truck around.
+    """
+    sckt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sckt.connect((host, port))
+    server = sckt.makefile()
 
     while True:
         sckt.send("r\r\n".encode())
@@ -126,6 +164,8 @@ def drive_truck():
             [x_lvl_hi,           strg_right, steer_lvl01],
         ]
 
+        # stacks the minimized arrays into a single array and
+        # applies maximization with respect to the new axis
         aggregated = dstack(map(_min, rules)).max(2)
         steer_value = defuzz(intensity, aggregated, 'centroid')
 
@@ -136,24 +176,35 @@ def drive_truck():
 
 if __name__ == '__main__':
 
+    # socket uses this
+    host = "127.0.0.1"
+    port = 4321
+
+    # limitations from the server
     x_dist = arange(0, 1.1, 0.1)
     y_dist = arange(0, 1.1, 0.1)
     angle_range = arange(-31, 31, 1)
+
+    # the step value for this range can be customized
     intensity = arange(-1, 1, 0.25)
 
+    # position along the X axis
     x_lo = trimf(x_dist, [0.0, 0.0, 0.3])
     x_md = trimf(x_dist, [0.2, 0.5, 0.7])
     x_hi = trimf(x_dist, [0.6, 1.0, 1.0])
 
+    # position along the Y axis
     y_lo = trimf(y_dist, [0.0, 0.0, 0.5])
     y_hi = trimf(y_dist, [0.2, 1.0, 1.0])
 
+    # angle of truck
     a_strg_right = trimf(angle_range, [10, 30, 30])
     a_weak_right = trimf(angle_range, [0, 10, 20])
     a_straight = trimf(angle_range, [-4, 0, 4])
     a_weak_left = trimf(angle_range, [-20, -10, 0])
     a_strg_left = trimf(angle_range, [-30, -30, -10])
 
+    # level of steering (lower level means steering to the left)
     steer_lvl01 = trimf(intensity, [-1.0, -1.0, -0.5])
     steer_lvl02 = trimf(intensity, [-0.8, -0.3, 0.0])
     steer_lvl03 = trimf(intensity, [-0.5, 0.0, 0.5])
