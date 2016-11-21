@@ -1,12 +1,14 @@
 from csv import reader
 from random import randrange
 from numpy import argmax
-
+import numpy as np
 from pybrain.datasets import SupervisedDataSet
 from pybrain.tools.shortcuts import buildNetwork
-from pybrain.structure.modules import SoftmaxLayer
+from pybrain.structure.modules import SoftmaxLayer, LinearLayer, SigmoidLayer, TanhLayer
 from pybrain.supervised.trainers import BackpropTrainer
-
+from pybrain.utilities import percentError
+from pybrain.datasets import ClassificationDataSet
+from pybrain.tools.validation import Validator
 
 def feature_scaling(a, n):
     def scale(x): return (x - min(a)) * n // (max(a) - min(a))
@@ -47,7 +49,7 @@ def open_csv(path='sample.csv'):
         return [list(map(float, i)) for i in zip(*reader(f))]
 
 
-data = organize_data(open_csv())
+data = organize_data(open_csv('exdata.csv'))
 
 ds = SupervisedDataSet(len(data[0][0]), 10)
 for i in data:
@@ -55,18 +57,21 @@ for i in data:
 
 test_data, train_data = ds.splitWithProportion(0.25)
 net = buildNetwork(
-    train_data.indim, 40, train_data.outdim, outclass=SoftmaxLayer)
-trainer = BackpropTrainer(net, ds, verbose=True)
+    train_data.indim, 40, train_data.outdim, hiddenclass=TanhLayer, outclass=SoftmaxLayer)
+trainer = BackpropTrainer(net, dataset=train_data, learningrate=0.5, momentum=0.5, verbose=True)
 
 train_data_orig = [argmax(i) for i in train_data['target']]
 test_data_orig = [argmax(i) for i in test_data['target']]
 
-for i in range(20):
+for i in range(100):
     trainer.trainEpochs(1)
-    train_data_neural = trainer.testOnClassData()
+    train_data_neural = trainer.testOnClassData(dataset=train_data)
     test_data_neural = trainer.testOnClassData(dataset=test_data)
-
+    # print(train_data_neural)
+    # print(test_data_neural)
+    Validator.ESS(np.asarray(train_data_neural), np.asarray(train_data_orig))
+    Validator.ESS(np.asarray(test_data_neural), np.asarray(test_data_orig))
     print("Epoch: {:3d}  Train data: {:.5f}%  Test data: {:.5f}%".format(
             trainer.totalepochs,
-            percent(train_data_orig, train_data_neural),
-            percent(test_data_orig, test_data_neural)))
+            percentError(train_data_orig, train_data_neural),
+            percentError(test_data_orig, test_data_neural)))
