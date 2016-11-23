@@ -1,14 +1,13 @@
 from csv import reader
 from random import randrange
 from numpy import argmax
-import numpy as np
+
 from pybrain.datasets import SupervisedDataSet
 from pybrain.tools.shortcuts import buildNetwork
-from pybrain.structure.modules import SoftmaxLayer, LinearLayer, SigmoidLayer, TanhLayer
+from pybrain.structure.modules import SoftmaxLayer, TanhLayer
 from pybrain.supervised.trainers import BackpropTrainer
 from pybrain.utilities import percentError
-from pybrain.datasets import ClassificationDataSet
-from pybrain.tools.validation import Validator
+
 
 def feature_scaling(a, n):
     def scale(x): return (x - min(a)) * n // (max(a) - min(a))
@@ -49,29 +48,29 @@ def open_csv(path='sample.csv'):
         return [list(map(float, i)) for i in zip(*reader(f))]
 
 
-data = organize_data(open_csv('exdata.csv'))
+data = organize_data(open_csv('sample.csv'))
 
 ds = SupervisedDataSet(len(data[0][0]), 10)
 for i in data:
     ds.addSample(i[0], i[1])
 
-test_data, train_data = ds.splitWithProportion(0.25)
-net = buildNetwork(
-    train_data.indim, 40, train_data.outdim, hiddenclass=TanhLayer, outclass=SoftmaxLayer)
-trainer = BackpropTrainer(net, dataset=train_data, learningrate=0.5, momentum=0.5, verbose=True)
+test_data, train_data = ds.splitWithProportion(0.2)
+net = buildNetwork(train_data.indim, 40, train_data.outdim,
+                   hiddenclass=TanhLayer, outclass=SoftmaxLayer)
+trainer = BackpropTrainer(net, dataset=train_data, learningrate=0.04)
 
+all_data = [argmax(i) for i in ds['target']]
 train_data_orig = [argmax(i) for i in train_data['target']]
 test_data_orig = [argmax(i) for i in test_data['target']]
 
-for i in range(100):
-    trainer.trainEpochs(1)
+for _ in range(100):
+    trainer.train()
+    all_data_neural = trainer.testOnClassData(dataset=ds)
     train_data_neural = trainer.testOnClassData(dataset=train_data)
     test_data_neural = trainer.testOnClassData(dataset=test_data)
-    # print(train_data_neural)
-    # print(test_data_neural)
-    Validator.ESS(np.asarray(train_data_neural), np.asarray(train_data_orig))
-    Validator.ESS(np.asarray(test_data_neural), np.asarray(test_data_orig))
-    print("Epoch: {:3d}  Train data: {:.5f}%  Test data: {:.5f}%".format(
-            trainer.totalepochs,
-            percentError(train_data_orig, train_data_neural),
-            percentError(test_data_orig, test_data_neural)))
+
+    print("Epoch: {:3d}   All: {:.2f}%   Train: {:.2f}%   Test: {:.2f}%"
+          .format(trainer.totalepochs,
+                  percentError(all_data, all_data_neural),
+                  percentError(train_data_orig, train_data_neural),
+                  percentError(test_data_orig, test_data_neural)))
