@@ -1,0 +1,9 @@
+A neural network that classifies a portion of the MNIST database, that
+contains handwritten digits, through the backpropagation with gradient
+descent method.
+
+Install the needed Python packages with
+
+    # pip install -r requirements.txt
+
+One may need also need to install the `tk` package.
