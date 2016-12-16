@@ -37,14 +37,14 @@ class GomokuBoard():
         os.system('cls' if os.name == 'nt' else 'clear')
 
         letter_row = "     " + " ".join(
-                chr(i) for i in range(65, 65 + len(self.board[0]))) + '\n'
+            chr(i) for i in range(65, 65 + len(self.board[0]))) + '\n'
         top_row = '   ┏' + '━' * (2 * len(self.board[0]) + 1) + '┓\n'
         bottom_row = '   ┗' + '━' * (2 * len(self.board[0]) + 1) + '┛'
         mid_rows = ""
 
         for row, i in zip(self.board, range(len(self.board))):
             mid_rows += '{:02d} ┃ '.format(i + 1) + ' '.join(
-                    self.stones[i] for i in row) + ' ┃\n'
+                self.stones[i] for i in row) + ' ┃\n'
 
         return letter_row + top_row + mid_rows + bottom_row
 
@@ -70,9 +70,10 @@ class GomokuBoard():
         """
         factors = [default]
         for i in range(2, 5):
-            factors += [round((15 - i + 1) * 3 * 7.5 * factors[i-2:i-1][0])]
+            n = (15 - i + 1) * 3 * 7.5
+            factors += [round(n * factors[i - 2:i - 1][0])]
 
-        return {i+1 : j for i, j in enumerate(factors)}
+        return {i + 1: j for i, j in enumerate(factors)}
 
     def h_victory(self, board):
         """
@@ -283,7 +284,7 @@ class GomokuBoard():
         Returns:
             An integer that reflects these factors.
         """
-        open_sides = {2: 1, 1: 1/2, 0: 0.1}
+        open_sides = {2: 1, 1: 1 / 2, 0: 0.1}
         value = 0
 
         for row in (i for i in board if sum(i)):

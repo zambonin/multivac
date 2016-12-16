@@ -26,7 +26,7 @@ def player_input(board, player):
 
             raw = raw.upper() if raw else 'error'
             if raw[-1] in map(chr, range(65, 80)):
-                raw = raw[len(raw)-1:] + raw[:len(raw)-1]
+                raw = raw[len(raw) - 1:] + raw[:len(raw) - 1]
 
             valid_pos = match(r'[A-O](0?[1-9]|1[0-5])\Z', raw)
             pos = (int(raw[1:]) - 1, ord(raw[:1]) - 65)
@@ -53,7 +53,7 @@ def game_loop(board, mode=None):
         print(board)
         if mode == 'shodan' and player == -1:
             s, pos = mmax.ab_pruning(board, 2, float('-inf'),
-                float('inf'), player)
+                                     float('inf'), player)
         else:
             pos = player_input(board, player)
         board.place_stone(player, pos)

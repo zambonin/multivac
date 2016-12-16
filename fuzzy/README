@@ -7,3 +7,5 @@ Install the needed Python packages with
     # pip install -r requirements.txt
 
 One may need also need to install the `tk` package.
+
+Original assignment: 840cbeb0b44b4dbb359b0c1e2522989b7a353555

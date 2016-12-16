@@ -55,7 +55,7 @@ def pgm_matrix(row):
     _min, _max = min(row), max(row)
     nmat = list(map(lambda x: (x - _min) * 255 // (_max - _min), row))
 
-    return [nmat[i:i+side] for i in range(0, len(nmat), side)], out
+    return [nmat[i:i + side] for i in range(0, len(nmat), side)], out
 
 
 def gen_pgm_file(m, n):

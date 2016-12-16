@@ -66,9 +66,9 @@ def plot_fuzzy_sets():
     ax0.set_title('X Distance')
     ax0.legend()
 
-    ax1.plot(angle_range, a_strg_left,  'b', linewidth=1.5, label='Str. left')
-    ax1.plot(angle_range, a_weak_left,  'g', linewidth=1.5, label='Left')
-    ax1.plot(angle_range, a_straight,   'r', linewidth=1.5, label='Straight')
+    ax1.plot(angle_range, a_strg_left, 'b', linewidth=1.5, label='Str. left')
+    ax1.plot(angle_range, a_weak_left, 'g', linewidth=1.5, label='Left')
+    ax1.plot(angle_range, a_straight, 'r', linewidth=1.5, label='Straight')
     ax1.plot(angle_range, a_weak_right, 'k', linewidth=1.5, label='Right')
     ax1.plot(angle_range, a_strg_right, 'y', linewidth=1.5, label='Str. right')
     ax1.set_title('Rotation Power')
@@ -126,34 +126,34 @@ def drive_truck():
         strg_left = interp_membership(angle_range, a_strg_left, rot)
 
         rules_level_06 = [
-            [x_lvl_lo, strg_left,  steer_lvl06],
-            [x_lvl_lo, weak_left,  steer_lvl06],
-            [x_lvl_lo, straight,   steer_lvl06],
+            [x_lvl_lo, strg_left, steer_lvl06],
+            [x_lvl_lo, weak_left, steer_lvl06],
+            [x_lvl_lo, straight, steer_lvl06],
             [x_lvl_lo, strg_right, steer_lvl06],
-            [x_lvl_md, strg_left,  steer_lvl06],
+            [x_lvl_md, strg_left, steer_lvl06],
         ]
 
         rules_level_05 = [
             [x_lvl_lo, weak_right, steer_lvl05],
-            [x_lvl_md, weak_left,  steer_lvl05],
+            [x_lvl_md, weak_left, steer_lvl05],
         ]
 
         rules_level_04 = [
             [x_lvl_lo, strg_right, steer_lvl04],
-            [x_lvl_md, straight,   steer_lvl04],
-            [x_lvl_hi, strg_left,  steer_lvl04],
+            [x_lvl_md, straight, steer_lvl04],
+            [x_lvl_hi, strg_left, steer_lvl04],
         ]
 
         rules_level_02 = [
             [x_lvl_md, weak_right, steer_lvl02],
-            [x_lvl_hi, weak_left,  steer_lvl02],
+            [x_lvl_hi, weak_left, steer_lvl02],
         ]
 
         rules_level_01 = [
             [x_lvl_md, strg_right, steer_lvl01],
-            [x_lvl_hi, straight,   steer_lvl01],
+            [x_lvl_hi, straight, steer_lvl01],
             [x_lvl_hi, weak_right, steer_lvl01],
-            [x_lvl_hi, strg_left,  steer_lvl01],
+            [x_lvl_hi, strg_left, steer_lvl01],
             [x_lvl_hi, strg_right, steer_lvl01],
         ]
 
