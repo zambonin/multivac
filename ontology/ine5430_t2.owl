@@ -7,10 +7,10 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12"/>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -18,7 +18,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use -->
@@ -26,7 +26,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Human"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait -->
@@ -34,7 +34,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#can_use_bait">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch -->
@@ -42,7 +42,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#catch">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats -->
@@ -50,7 +50,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#eats">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#is_friend -->
@@ -59,10 +59,10 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Human"/>
     </owl:ObjectProperty>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -70,7 +70,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aqua_Master -->
@@ -156,7 +156,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bad_Fisherman -->
@@ -170,7 +170,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bait -->
@@ -183,7 +183,7 @@
             </owl:Restriction>
         </owl:equivalentClass>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bamboo_Fishing_Rod -->
@@ -213,7 +213,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Blue_Marlin -->
@@ -235,7 +235,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp -->
@@ -269,7 +269,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Claudine -->
@@ -299,7 +299,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab -->
@@ -325,7 +325,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dace -->
@@ -351,7 +351,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings -->
@@ -377,7 +377,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dynatrad -->
@@ -399,7 +399,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm -->
@@ -445,7 +445,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eats_All -->
@@ -466,7 +466,7 @@
             </owl:Class>
         </owl:equivalentClass>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eats_a_Fish -->
@@ -479,7 +479,7 @@
             </owl:Restriction>
         </owl:equivalentClass>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eats_not_Fish -->
@@ -492,7 +492,7 @@
             </owl:Restriction>
         </owl:equivalentClass>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Eel -->
@@ -506,13 +506,13 @@
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fish"/>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman -->
@@ -534,7 +534,7 @@
             </owl:Class>
         </owl:equivalentClass>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Frog -->
@@ -564,7 +564,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Garvelze -->
@@ -594,7 +594,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gigangora -->
@@ -620,7 +620,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gold_Angelfish -->
@@ -642,7 +642,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Good_Fisherman -->
@@ -668,7 +668,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Granakor -->
@@ -682,7 +682,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Great_Blackfish -->
@@ -704,7 +704,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Human -->
@@ -717,7 +717,7 @@
             </owl:Restriction>
         </owl:equivalentClass>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Kasago -->
@@ -739,7 +739,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lakelord_II -->
@@ -773,7 +773,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Liberl_Carp -->
@@ -799,7 +799,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Mahi-mahi -->
@@ -821,7 +821,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Marine_Star -->
@@ -851,7 +851,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Medium_Fisherman -->
@@ -877,7 +877,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Metal_Trident_Rod -->
@@ -911,7 +911,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Octopus -->
@@ -937,7 +937,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pearlglass -->
@@ -967,7 +967,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Piscis_Heart -->
@@ -993,7 +993,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete -->
@@ -1027,7 +1027,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Progress_Rod -->
@@ -1061,7 +1061,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rainbow_Trout -->
@@ -1087,7 +1087,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Red_Flies -->
@@ -1121,7 +1121,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail -->
@@ -1147,7 +1147,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_bug -->
@@ -1189,7 +1189,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rockeater -->
@@ -1235,7 +1235,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Rods -->
@@ -1248,7 +1248,7 @@
             </owl:Restriction>
         </owl:equivalentClass>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Roe -->
@@ -1286,7 +1286,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Salmon -->
@@ -1312,7 +1312,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Sea_Bass -->
@@ -1338,7 +1338,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet -->
@@ -1384,7 +1384,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Snakehead -->
@@ -1422,7 +1422,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Tiger_Rockfish -->
@@ -1448,7 +1448,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout -->
@@ -1482,7 +1482,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Valleria_Bass -->
@@ -1504,7 +1504,7 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Yamany -->
@@ -1530,10 +1530,10 @@
             </owl:Class>
         </rdfs:subClassOf>
     </owl:Class>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Individuals
@@ -1541,7 +1541,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aeondith -->
@@ -1551,7 +1551,7 @@
         <can_use_bait rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Glenn"/>
         <can_use_bait rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bambii -->
@@ -1559,7 +1559,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bambii">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bamboo_Fishing_Rod"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carian -->
@@ -1569,7 +1569,7 @@
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Mike"/>
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shin"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Cerb -->
@@ -1577,7 +1577,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Cerb">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Piscis_Heart"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Chaet -->
@@ -1585,7 +1585,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Chaet">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Cray -->
@@ -1594,7 +1594,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé"/>
     </owl:Thing>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Douglas -->
@@ -1603,7 +1603,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Octopus"/>
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Zé"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Estelle -->
@@ -1614,7 +1614,7 @@
         <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV_2"/>
         <is_friend rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Joshua"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fifi -->
@@ -1623,7 +1623,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Valleria_Bass"/>
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Zé"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Foreign_Individual -->
@@ -1632,7 +1632,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Oni"/>
     </owl:Thing>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gary -->
@@ -1640,7 +1640,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gary">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Ghinn -->
@@ -1649,7 +1649,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Chaet"/>
     </owl:Thing>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Ghuntin -->
@@ -1659,7 +1659,7 @@
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Mike"/>
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Oni"/>
     </owl:Thing>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Glenn -->
@@ -1667,7 +1667,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Glenn">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Trout"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Gonn -->
@@ -1676,7 +1676,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <catch rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fifi"/>
     </owl:Thing>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Hades -->
@@ -1684,7 +1684,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Hades">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Piscis_Heart"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Jim -->
@@ -1693,7 +1693,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Earthworm"/>
         <catch rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Zé"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Joe -->
@@ -1702,7 +1702,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
         <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Cerb"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Joshua -->
@@ -1713,7 +1713,7 @@
         <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Hades"/>
         <is_friend rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Scherazard"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lira -->
@@ -1722,7 +1722,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Panda"/>
     </owl:Thing>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lola -->
@@ -1730,7 +1730,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Lola">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#River_Snail"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkII -->
@@ -1739,7 +1739,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aqua_Master"/>
         <can_use_bait rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Poly"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV -->
@@ -1747,7 +1747,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aqua_Master"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV_2 -->
@@ -1755,7 +1755,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkV_2">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aqua_Master"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Mike -->
@@ -1764,7 +1764,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Poly"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nami -->
@@ -1773,7 +1773,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <catch rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé"/>
     </owl:Thing>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Neptune -->
@@ -1781,7 +1781,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Neptune">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Metal_Trident_Rod"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nick -->
@@ -1790,7 +1790,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
         <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Aeondith"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nigiri -->
@@ -1799,7 +1799,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings"/>
         <catch rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nini -->
@@ -1808,7 +1808,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Fisherman"/>
         <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bambii"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Nino -->
@@ -1817,7 +1817,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#MarkII"/>
     </owl:Thing>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Oni -->
@@ -1825,7 +1825,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Oni">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Dumplings"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Panda -->
@@ -1833,7 +1833,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Panda">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Bamboo_Fishing_Rod"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé -->
@@ -1841,7 +1841,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Pelé">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Carp"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Poly -->
@@ -1849,7 +1849,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Poly">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Polychaete"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Scherazard -->
@@ -1859,7 +1859,7 @@
         <can_use rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Panda"/>
         <is_friend rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Estelle"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shin -->
@@ -1867,7 +1867,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shin">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Shrimplet"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Triton -->
@@ -1875,7 +1875,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Triton">
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Metal_Trident_Rod"/>
     </owl:NamedIndividual>
-    
+
 
 
     <!-- http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Zé -->
@@ -1884,10 +1884,10 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Crab"/>
         <eats rdf:resource="http://www.semanticweb.org/windows/ontologies/2016/9/untitled-ontology-12#Chaet"/>
     </owl:NamedIndividual>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // General axioms

@@ -59,23 +59,23 @@
         $v_n$ como o valor de uma $n$-uplas de tamanho $n$, é possível
         calcular $v_{n + 1}$, assumindo alguns fatos na construção do
         raciocínio:
-        
+
         \begin{itemize}
-        
+
             \item $v_{n + 1} > \sum v_n$, para que o algoritmo sempre busque
                 construir as maiores $n$-uplas;
-                
+
             \item um valor inicial não-nulo para $v_1$, a menor $n$-upla que a
                 função considera;
-                
+
             \item existem $15 - n + 1$ possíveis arranjos de elementos
                 consecutivos com o mesmo valor em uma palavra binária de
-                tamanho $15$; 
-                
+                tamanho $15$;
+
             \item $\lceil \frac{15^2}{2} \rceil = 113$ é o maior número
                 de peças de um jogador num tabuleiro, o que implica em
                 $\frac{113}{15} \approx 7.5$ linhas de peças iguais;
-                
+
             \item existem 3 orientações onde um arranjo pode ser considerado
                 como $n$-upla.
 
@@ -154,7 +154,7 @@
             \item \texttt{gomoku\_board.py} é uma implementação simples de um
                 tabuleiro para um jogo de \textit{gomoku}, com métodos
                 variados para suportar a integração com um algoritmo de busca
-                de decisão, utilizando vários recursos da linguagem escolhida, 
+                de decisão, utilizando vários recursos da linguagem escolhida,
                 tais como \textit{slices}\footnote{\pslice},
 				\textit{unpacking}\footnote{\punpack} e
                 \textit{list comprehensions}\footnote{\plist}, bem como várias

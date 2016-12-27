@@ -48,7 +48,7 @@
     \begin{scope}[every node/.style={node distance=2mm}]
         \node[above left = of Mg] {
             \begin{tabular}{*{2}c}
-                $Mg$ = S & $Mg$ = N \\ 
+                $Mg$ = S & $Mg$ = N \\
                 0.1      & 0.9      \\
             \end{tabular}
         };
@@ -77,7 +77,7 @@
         };
 
         \node[below = 5mm of Zb] {
-            \begin{tabular}{*{4}c} 
+            \begin{tabular}{*{4}c}
                          &          & $Zb$ = S & $Zb$ = N  \\
                 $Mg$ = S & $Vr$ = S & 0.6      & 0.4       \\
                 $Mg$ = S & $Vr$ = N & 0.5      & 0.5       \\
@@ -124,7 +124,7 @@
         verdadeiro, aplicando também a probabilidade de $Mg$ nos dois casos,
         e soma-se estes valores:
         \begin{align*}
-            p_1 & = P(Mg = S \land Vr = S \land Zb = S) \times P(Mg = S) 
+            p_1 & = P(Mg = S \land Vr = S \land Zb = S) \times P(Mg = S)
                 = 0.6 \times 0.1 = 0.06 \\
             p_2 & = P(Mg = N \land Vr = S \land Zb = S) \times P(Mg = N)
                 = 0.4 \times 0.9 = 0.36 \\
@@ -154,7 +154,7 @@
         Então, utilizando probabilidade condicional e resultados anteriores:
         \begin{align*}
             P(Hp = S \mid Zb = S) & =
-                \frac{P(Hp = S \land Zb = S \land Mg = S) 
+                \frac{P(Hp = S \land Zb = S \land Mg = S)
                     + P(Hp = S \land Zb = S \land Mg = N)}{P(Zb = S)} \\
                 & = \frac{P(Mg = S) \times P(Hp = S \mid Mg = S)
                     \times P(Zb = S \mid Mg = S)}{P(Zb = S)} \\
@@ -197,7 +197,7 @@
                 \times P(Vr = S) \times P(Tp = S \mid Vr = S)}{P(Hp = S)
                 \times P(Tp = S)} \\
             & = \frac{0.1 \times 0.8 \times 0.6 \times 0.2
-                \times 0.3}{0.71 \times 0.14} \approx 0.02897 
+                \times 0.3}{0.71 \times 0.14} \approx 0.02897
         \end{align*}
         \begin{align*}
             p_2 & = \frac{P(Zb = S \land Tp = S \land Hp = S
