@@ -17,13 +17,13 @@ and it will try its best to park the truck.
 [1] http://man7.org/linux/man-pages/man2/socket.2.html
 """
 
-import socket
-import matplotlib.pyplot as plt
-
 from math import floor
+from socket import socket, AF_INET, SOCK_STREAM
+from sys import argv
+
+import matplotlib.pyplot as plt
 from numpy import arange, fmin, fmax
 from skfuzzy import defuzz, interp_membership, trimf
-from sys import argv
 
 
 def _min(_list):
@@ -52,42 +52,41 @@ def normalize_angle(angle):
     Returns:
         The normalized number.
     """
-
     return floor(((angle + 90) % 360.0) - 180.0)
 
 
 def plot_fuzzy_sets():
     """Shows the fuzzy sets constructed below in pretty colors."""
-    fig, (ax0, ax1, ax2) = plt.subplots(nrows=3, figsize=(8, 9))
+    _, (ax0, ax1, ax2) = plt.subplots(nrows=3, figsize=(8, 9))
 
-    ax0.plot(x_dist, x_lo, 'b', linewidth=1.5, label='Left')
-    ax0.plot(x_dist, x_md, 'g', linewidth=1.5, label='Center')
-    ax0.plot(x_dist, x_hi, 'r', linewidth=1.5, label='Right')
+    ax0.plot(X_DIST, X_LO, 'b', linewidth=1.5, label='Left')
+    ax0.plot(X_DIST, X_MD, 'g', linewidth=1.5, label='Center')
+    ax0.plot(X_DIST, X_HI, 'r', linewidth=1.5, label='Right')
     ax0.set_title('X Distance')
     ax0.legend()
 
-    ax1.plot(angle_range, a_strg_left, 'b', linewidth=1.5, label='Str. left')
-    ax1.plot(angle_range, a_weak_left, 'g', linewidth=1.5, label='Left')
-    ax1.plot(angle_range, a_straight, 'r', linewidth=1.5, label='Straight')
-    ax1.plot(angle_range, a_weak_right, 'k', linewidth=1.5, label='Right')
-    ax1.plot(angle_range, a_strg_right, 'y', linewidth=1.5, label='Str. right')
+    ax1.plot(ANGLE_RANGE, A_STRG_LEFT, 'b', linewidth=1.5, label='Str. left')
+    ax1.plot(ANGLE_RANGE, A_WEAK_LEFT, 'g', linewidth=1.5, label='Left')
+    ax1.plot(ANGLE_RANGE, A_STRAIGHT, 'r', linewidth=1.5, label='Straight')
+    ax1.plot(ANGLE_RANGE, A_WEAK_RIGHT, 'k', linewidth=1.5, label='Right')
+    ax1.plot(ANGLE_RANGE, A_STRG_RIGHT, 'y', linewidth=1.5, label='Str. right')
     ax1.set_title('Rotation Power')
     ax1.set_xlim([-35, 35])
     ax1.legend()
 
-    ax2.plot(intensity, steer_lvl01, 'g', linewidth=1.5, label='Lower')
-    ax2.plot(intensity, steer_lvl02, 'b', linewidth=1.5, label='Low')
-    ax2.plot(intensity, steer_lvl03, 'r', linewidth=1.5, label='Medium')
-    ax2.plot(intensity, steer_lvl05, 'k', linewidth=1.5, label='High')
-    ax2.plot(intensity, steer_lvl06, 'y', linewidth=1.5, label='Higher')
+    ax2.plot(INTENSITY, STEER_LVL01, 'g', linewidth=1.5, label='Lower')
+    ax2.plot(INTENSITY, STEER_LVL02, 'b', linewidth=1.5, label='Low')
+    ax2.plot(INTENSITY, STEER_LVL03, 'r', linewidth=1.5, label='Medium')
+    ax2.plot(INTENSITY, STEER_LVL05, 'k', linewidth=1.5, label='High')
+    ax2.plot(INTENSITY, STEER_LVL06, 'y', linewidth=1.5, label='Higher')
     ax2.set_title('Turn Power')
     ax2.legend()
 
-    for ax in (ax0, ax1, ax2):
-        ax.spines['top'].set_visible(False)
-        ax.spines['right'].set_visible(False)
-        ax.get_xaxis().tick_bottom()
-        ax.get_yaxis().tick_left()
+    for axis in (ax0, ax1, ax2):
+        axis.spines['top'].set_visible(False)
+        axis.spines['right'].set_visible(False)
+        axis.get_xaxis().tick_bottom()
+        axis.get_yaxis().tick_left()
 
     plt.tight_layout()
     plt.show()
@@ -100,8 +99,8 @@ def drive_truck():
     membership functions. Finally, a reply is sent containing a number in
     the range [-1, 1] that turns the truck around.
     """
-    sckt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sckt.connect((host, port))
+    sckt = socket(AF_INET, SOCK_STREAM)
+    sckt.connect(('127.0.0.1', 4321))
     server = sckt.makefile()
 
     while True:
@@ -109,101 +108,89 @@ def drive_truck():
         msg = server.readline().split()
 
         if msg:
-            x, y, angle = tuple(map(float, msg))
+            x_coord, _, angle = tuple(map(float, msg))
         else:
             break
 
         rot = normalize_angle(angle)
 
-        x_lvl_lo = interp_membership(x_dist, x_lo, x)
-        x_lvl_md = interp_membership(x_dist, x_md, x)
-        x_lvl_hi = interp_membership(x_dist, x_hi, x)
+        x_lvl_lo = interp_membership(X_DIST, X_LO, x_coord)
+        x_lvl_md = interp_membership(X_DIST, X_MD, x_coord)
+        x_lvl_hi = interp_membership(X_DIST, X_HI, x_coord)
 
-        strg_right = interp_membership(angle_range, a_strg_right, rot)
-        weak_right = interp_membership(angle_range, a_weak_right, rot)
-        straight = interp_membership(angle_range, a_straight, rot)
-        weak_left = interp_membership(angle_range, a_weak_left, rot)
-        strg_left = interp_membership(angle_range, a_strg_left, rot)
+        drive_to = {
+            'strg_right': interp_membership(ANGLE_RANGE, A_STRG_RIGHT, rot),
+            'weak_right': interp_membership(ANGLE_RANGE, A_WEAK_RIGHT, rot),
+            'straight': interp_membership(ANGLE_RANGE, A_STRAIGHT, rot),
+            'weak_left': interp_membership(ANGLE_RANGE, A_WEAK_LEFT, rot),
+            'strg_left': interp_membership(ANGLE_RANGE, A_STRG_LEFT, rot),
+        }
 
-        rules_level_06 = [
-            [x_lvl_lo, strg_left, steer_lvl06],
-            [x_lvl_lo, weak_left, steer_lvl06],
-            [x_lvl_lo, straight, steer_lvl06],
-            [x_lvl_lo, strg_right, steer_lvl06],
-            [x_lvl_md, strg_left, steer_lvl06],
+        rules = [
+            [
+                [x_lvl_lo, drive_to['strg_left'], STEER_LVL06],
+                [x_lvl_lo, drive_to['weak_left'], STEER_LVL06],
+                [x_lvl_lo, drive_to['straight'], STEER_LVL06],
+                [x_lvl_lo, drive_to['strg_right'], STEER_LVL06],
+                [x_lvl_md, drive_to['strg_left'], STEER_LVL06],
+            ],
+            [
+                [x_lvl_lo, drive_to['weak_right'], STEER_LVL05],
+                [x_lvl_md, drive_to['weak_left'], STEER_LVL05],
+            ],
+            [
+                [x_lvl_lo, drive_to['strg_right'], STEER_LVL04],
+                [x_lvl_md, drive_to['straight'], STEER_LVL04],
+                [x_lvl_hi, drive_to['strg_left'], STEER_LVL04],
+            ],
+            [
+                [x_lvl_md, drive_to['weak_right'], STEER_LVL02],
+                [x_lvl_hi, drive_to['weak_left'], STEER_LVL02],
+            ],
+            [
+                [x_lvl_md, drive_to['strg_right'], STEER_LVL01],
+                [x_lvl_hi, drive_to['straight'], STEER_LVL01],
+                [x_lvl_hi, drive_to['weak_right'], STEER_LVL01],
+                [x_lvl_hi, drive_to['strg_left'], STEER_LVL01],
+                [x_lvl_hi, drive_to['strg_right'], STEER_LVL01],
+            ],
         ]
 
-        rules_level_05 = [
-            [x_lvl_lo, weak_right, steer_lvl05],
-            [x_lvl_md, weak_left, steer_lvl05],
-        ]
-
-        rules_level_04 = [
-            [x_lvl_lo, strg_right, steer_lvl04],
-            [x_lvl_md, straight, steer_lvl04],
-            [x_lvl_hi, strg_left, steer_lvl04],
-        ]
-
-        rules_level_02 = [
-            [x_lvl_md, weak_right, steer_lvl02],
-            [x_lvl_hi, weak_left, steer_lvl02],
-        ]
-
-        rules_level_01 = [
-            [x_lvl_md, strg_right, steer_lvl01],
-            [x_lvl_hi, straight, steer_lvl01],
-            [x_lvl_hi, weak_right, steer_lvl01],
-            [x_lvl_hi, strg_left, steer_lvl01],
-            [x_lvl_hi, strg_right, steer_lvl01],
-        ]
-
-        aggregated = [
-            fmax.reduce(list(map(_min, rules_level_01))),
-            fmax.reduce(list(map(_min, rules_level_02))),
-            fmax.reduce(list(map(_min, rules_level_04))),
-            fmax.reduce(list(map(_min, rules_level_05))),
-            fmax.reduce(list(map(_min, rules_level_06))),
-        ]
-
-        steer_value = defuzz(intensity, fmax.reduce(aggregated), 'centroid')
+        aggregated = [fmax.reduce(list(map(_min, i))) for i in rules]
+        steer_value = defuzz(INTENSITY, fmax.reduce(aggregated), 'centroid')
         sckt.send((str(steer_value) + '\r\n').encode())
 
     sckt.close()
 
 
 if __name__ == '__main__':
-
-    # socket uses this
-    host = "127.0.0.1"
-    port = 4321
-
     # limitations from the server
-    x_dist = arange(0, 1.1, 0.1)
-    y_dist = arange(0, 1.1, 0.1)
-    angle_range = arange(-361, 361, 1)
+    X_DIST = arange(0, 1.1, 0.1)
+    Y_DIST = arange(0, 1.1, 0.1)
+    ANGLE_RANGE = arange(-361, 361, 1)
 
     # the step value for this range can be customized
-    intensity = arange(-1, 1, 0.25)
+    INTENSITY = arange(-1, 1, 0.25)
 
     # position along the X axis
-    x_lo = trimf(x_dist, [0.0, 0.0, 0.5])
-    x_md = trimf(x_dist, [0.2, 0.5, 0.8])
-    x_hi = trimf(x_dist, [0.5, 1.0, 1.0])
+    X_LO = trimf(X_DIST, [0.0, 0.0, 0.5])
+    X_MD = trimf(X_DIST, [0.2, 0.5, 0.8])
+    X_HI = trimf(X_DIST, [0.5, 1.0, 1.0])
 
     # angle of truck
-    a_strg_right = trimf(angle_range, [10, 360, 360])
-    a_weak_right = trimf(angle_range, [0, 15, 30])
-    a_straight = trimf(angle_range, [-5, 0, 5])
-    a_weak_left = trimf(angle_range, [-30, -15, 0])
-    a_strg_left = trimf(angle_range, [-360, -360, -10])
+    A_STRG_RIGHT = trimf(ANGLE_RANGE, [10, 360, 360])
+    A_WEAK_RIGHT = trimf(ANGLE_RANGE, [0, 15, 30])
+    A_STRAIGHT = trimf(ANGLE_RANGE, [-5, 0, 5])
+    A_WEAK_LEFT = trimf(ANGLE_RANGE, [-30, -15, 0])
+    A_STRG_LEFT = trimf(ANGLE_RANGE, [-360, -360, -10])
 
     # level of steering (lower level means steering to the left)
-    steer_lvl01 = trimf(intensity, [-1.0, -1.0, -0.5])
-    steer_lvl02 = trimf(intensity, [-0.8, -0.3, 0.0])
-    steer_lvl03 = trimf(intensity, [-0.2, 0.0, 0.2])
-    steer_lvl04 = trimf(intensity, [-0.1, 0.0, 0.1])
-    steer_lvl05 = trimf(intensity, [0.0, 0.3, 0.8])
-    steer_lvl06 = trimf(intensity, [0.5, 1.0, 1.0])
+    STEER_LVL01 = trimf(INTENSITY, [-1.0, -1.0, -0.5])
+    STEER_LVL02 = trimf(INTENSITY, [-0.8, -0.3, 0.0])
+    STEER_LVL04 = trimf(INTENSITY, [-0.1, 0.0, 0.1])
+    STEER_LVL03 = trimf(INTENSITY, [-0.2, 0.0, 0.2])
+    STEER_LVL05 = trimf(INTENSITY, [0.0, 0.3, 0.8])
+    STEER_LVL06 = trimf(INTENSITY, [0.5, 1.0, 1.0])
 
     drive_truck()
 

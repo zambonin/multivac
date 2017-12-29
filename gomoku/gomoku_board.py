@@ -70,92 +70,32 @@ class GomokuBoard():
         """
         factors = [default]
         for i in range(2, 5):
-            n = (15 - i + 1) * 3 * 7.5
-            factors += [round(n * factors[i - 2:i - 1][0])]
+            nuples = (self.side - i + 1) * 3 * 7.5
+            factors += [round(nuples * factors[i - 2:i - 1][0])]
 
         return {i + 1: j for i, j in enumerate(factors)}
 
-    def h_victory(self, board):
-        """
-        Tests possible horizontal victories grouping consecutive similar
-        stones and counting their individual lengths, dismissing groups of
-        empty spaces.
-
-        Args:
-            board:  the matrix representation for the board.
-
-        Returns:
-            True if there exists a set of five or more stones with the same
-            color horizontally aligned on the board, False otherwise.
-        """
-        for row in board:
-            lengths = ((piece, sum(1 for _ in group))
-                       for piece, group in groupby(row))
-            if any(i and j >= 5 for i, j in lengths):
-                return True
-        return False
-
-    def v_victory(self, board):
-        """
-        Tests possible vertical victories checking horizontal alignments
-        within the board's transposed matrix representation.
-
-        Args:
-            board:  the matrix representation for the board.
-
-        Returns:
-            True if there exists a set of five or more stones with the same
-            color vertically aligned on the board, False otherwise.
-        """
-        return self.h_victory(zip(*board))
-
-    def d_victory(self, board):
-        """
-        Tests possible diagonal victories checking horizontal alignments
-        within the board's diagonals and antidiagonals represented as rows.
-
-        Args:
-            board:  the matrix representation for the board.
-
-        Returns:
-            True if there exists a set of five or more stones with the same
-            color diagonally aligned on the board, False otherwise.
-        """
-        return (self.h_victory(self.diagonals(board)) or
-                self.h_victory(self.antidiagonals(board)))
-
-    def diagonals(self, board):
+    def diagonals(self, invert=True):
         """
         Creates lists with all the board matrix's diagonals, starting from the
         bottom-left element and going towards the top-right. Based on [1].
 
         Args:
-            board:  the matrix representation for the board.
+            invert: inverts the board to create antidiagonals.
 
         Returns:
             All the diagonals from the matrix.
 
         [1] http://stackoverflow.com/a/23069625
         """
-        diags, h, w = [], len(board), len(board[0])
-        for i in range(h + w - 1):
-            poss_range = range(max(i - w + 1, 0), min(h - 1, i) + 1)
-            diags.append([board[h - 1 - j][i - j] for j in poss_range])
+        board = [i[::-1] for i in self.board] if invert else self.board
+        diags, hgt, wdt = [], len(board), len(board[0])
+
+        for i in range(hgt + wdt - 1):
+            poss_range = range(max(i - wdt + 1, 0), min(hgt - 1, i) + 1)
+            diags.append([board[hgt - 1 - j][i - j] for j in poss_range])
 
         return diags
-
-    def antidiagonals(self, board):
-        """
-        Creates lists with all the antidiagonals, reversing the board matrix
-        such that the starting element need not be changed.
-
-        Args:
-            board:  the matrix representation for the board.
-
-        Returns:
-            All antidiagonals with length greater than five.
-        """
-        return self.diagonals([i[::-1] for i in board])
 
     def victory(self):
         """
@@ -167,8 +107,14 @@ class GomokuBoard():
             horizontally, vertically or diagonally aligned on the board,
             False otherwise.
         """
-        return (self.h_victory(self.board) or self.v_victory(self.board) or
-                self.d_victory(self.board))
+        for board in [self.board, zip(*self.board),
+                      self.diagonals(), self.diagonals(invert=True)]:
+            for row in board:
+                lengths = ((piece, sum(1 for _ in group))
+                           for piece, group in groupby(row))
+                if any(i and j >= 5 for i, j in lengths):
+                    return True
+        return False
 
     def place_stone(self, player, position):
         """
@@ -179,8 +125,8 @@ class GomokuBoard():
                         stones and -1, the white ones.
             position:   the board matrix's coordinates for the play.
         """
-        x, y = position
-        self.board[x][y] = player
+        x_coord, y_coord = position
+        self.board[x_coord][y_coord] = player
 
     def is_empty_space(self, position):
         """
@@ -192,8 +138,8 @@ class GomokuBoard():
         Returns:
             True if the position is empty, False otherwise.
         """
-        x, y = position
-        return self.board[x][y] == 0
+        x_coord, y_coord = position
+        return self.board[x_coord][y_coord] == 0
 
     def clear(self):
         """
@@ -224,11 +170,11 @@ class GomokuBoard():
         Returns:
             List of neighbors' coordinates.
         """
-        x, y = position
+        x_coord, y_coord = position
         neighbors = []
 
         for i in range(1, radius + 1):
-            neighbors += list(starmap(lambda a, b: (x + a, y + b),
+            neighbors += list(starmap(lambda a, b: (x_coord + a, y_coord + b),
                                       product((0, -i, +i), (0, -i, +i))))
 
         return list(filter(
@@ -250,7 +196,7 @@ class GomokuBoard():
         return [(i, j) for i, j in self.neighbor_board(position, radius)
                 if not board[i][j]]
 
-    def filled_spaces(self, board, player):
+    def filled_spaces(self, player):
         """
         Elaborates which spaces of the board matrix were played by some
         player, or are empty (if the player argument is zero).
@@ -262,8 +208,9 @@ class GomokuBoard():
         Returns:
             List with the coordinates of the valid places.
         """
-        size = range(len(board))
-        _list = [[(i, j) for j in size if board[i][j] == player] for i in size]
+        size = range(len(self.board))
+        _list = [[(i, j) for j in size if self.board[i][j] == player]
+                 for i in size]
 
         return list(chain.from_iterable(_list))
 
@@ -293,16 +240,17 @@ class GomokuBoard():
                        for piece, group in groupby(row)]
 
             for i in range(1, len(lengths) - 1):
-                n = lengths[i - 1][0] == 0 + lengths[i + 1][0] == 0
+                sides = lengths[i - 1][0] == 0 + lengths[i + 1][0] == 0
                 if (lengths[i] == [0, 1] and
-                   lengths[i - 1][1] + lengths[i + 1][1] >= 4 and
-                   lengths[i - 1][0] == lengths[i + 1][0] == player):
+                        lengths[i - 1][1] + lengths[i + 1][1] >= 4 and
+                        lengths[i - 1][0] == lengths[i + 1][0] == player):
                     return 2**32
                 elif lengths[i][0] == player:
-                    if lengths[i][1] >= 4 and n:
+                    if lengths[i][1] >= 4 and sides:
                         return 2**32
                     else:
-                        value += (self.factors[lengths[i][1]] * open_sides[n])
+                        value += (self.factors[lengths[i][1]] *
+                                  open_sides[sides])
 
         return value
 
@@ -333,7 +281,7 @@ class GomokuBoard():
             An integer that reflects these factors.
         """
         return (self.row_values(self.diagonals(board), player) +
-                self.row_values(self.antidiagonals(board), player))
+                self.row_values(self.diagonals(invert=True), player))
 
     def evaluate(self, board, player):
         """

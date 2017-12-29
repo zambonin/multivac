@@ -28,10 +28,10 @@ descent method.
 
 from csv import reader
 from random import randrange
-from matplotlib import pyplot as plt
-from numpy import argmax
 from sys import argv
 
+from numpy import argmax
+from matplotlib import pyplot as plt
 from pybrain.datasets import SupervisedDataSet
 from pybrain.structure.modules import SoftmaxLayer, TanhLayer
 from pybrain.supervised.trainers import BackpropTrainer
@@ -58,7 +58,7 @@ def pgm_matrix(row):
     return [nmat[i:i + side] for i in range(0, len(nmat), side)], out
 
 
-def gen_pgm_file(m, n):
+def gen_pgm_file(matrix, number):
     """
     Creates a PGM file with a seemingly random filename, prepended by the
     value which it represents.
@@ -67,11 +67,11 @@ def gen_pgm_file(m, n):
         m:  matrix with pixel data.
         n:  digit represented by the image.
     """
-    name = "{}_{:010x}.pgm".format(n % 10, randrange(16**10))
-    with open(name, 'w') as f:
-        f.write("P2\n{} {}\n255\n".format(len(m), len(m[0])))
-        for i in m:
-            f.write(" ".join(map(str, i)) + "\n")
+    name = "{}_{:010x}.pgm".format(number % 10, randrange(16**10))
+    with open(name, 'w') as _file:
+        _file.write("P2\n{} {}\n255\n".format(len(matrix), len(matrix[0])))
+        for i in matrix:
+            _file.write(" ".join(map(str, i)) + "\n")
 
 
 def open_csv(path='sample.csv'):
@@ -85,8 +85,8 @@ def open_csv(path='sample.csv'):
     Returns:
         Transposed matrix with floating point values inside [-1, 1].
     """
-    with open(path, 'r') as f:
-        return [list(map(float, i)) for i in zip(*reader(f))]
+    with open(path, 'r') as _file:
+        return [list(map(float, i)) for i in zip(*reader(_file))]
 
 
 def to_dataset(data):
@@ -136,30 +136,31 @@ def plot_conf_matrix(trainer, data):
     target = [argmax(i) for i in data['target']]
 
     side = max(target) - min(target) + 1
-    m = [[0 for _ in range(side)] for _ in range(side)]
-    for x, y in zip(target, result):
-        m[x][y] += 1
+    mat = [[0 for _ in range(side)] for _ in range(side)]
+    for xtr, yrs in zip(target, result):
+        mat[xtr][yrs] += 1
 
     fig = plt.figure()
-    ax = fig.add_subplot(111)
+    axis = fig.add_subplot(111)
 
-    percent = [[j / sum(i) for j in i] for i in m]
-    res = ax.imshow(percent, cmap=plt.cm.coolwarm, interpolation='nearest')
+    res = axis.imshow([[j / sum(i) for j in i] for i in mat],
+                      cmap=plt.cm.coolwarm, interpolation='nearest')
     fig.colorbar(res)
 
-    width, height = range(len(m)), range(len(m[0]))
+    width, height = range(len(mat)), range(len(mat[0]))
 
-    for x in width:
-        for y in height:
-            ax.annotate(m[x][y], xy=(y, x), horizontalalignment='center',
-                        verticalalignment='center')
+    for wid in width:
+        for hei in height:
+            axis.annotate(mat[wid][hei], xy=(hei, wid),
+                          horizontalalignment='center',
+                          verticalalignment='center')
 
     plt.xticks(width, width)
     plt.yticks(height, height)
     plt.savefig('confusion_matrix.png', format='png')
 
 
-def classify_digits(data, prop=0.2, hln=40, lr=0.04, ne=30):
+def classify_digits(data, prop=0.2, hln=40, lrate=0.04, epochs=30):
     """
     Creates a neural network with three layers:
         * 400 neurons for the input layer, one for each pixel;
@@ -173,16 +174,16 @@ def classify_digits(data, prop=0.2, hln=40, lr=0.04, ne=30):
         prop:   proportion percentage for how much of the dataset will be
                 separated for test data.
         hln:    number of neurons for the hidden layer.
-        lr:     value for the learning rate.
-        ne:     number of epochs.
+        lrate:  value for the learning rate.
+        epochs: number of epochs.
     """
     dset = to_dataset(data)
     dtest, dtrain = dset.splitWithProportion(prop)
     net = buildNetwork(dtrain.indim, hln, dtrain.outdim,
                        hiddenclass=TanhLayer, outclass=SoftmaxLayer)
-    trainer = BackpropTrainer(net, dataset=dtrain, learningrate=lr)
+    trainer = BackpropTrainer(net, dataset=dtrain, learningrate=lrate)
 
-    for _ in range(ne):
+    for _ in range(epochs):
         trainer.train()
         print("Epoch: {:3d}   All: {:.2f}%   Train: {:.2f}%   Test: {:.2f}%"
               .format(trainer.totalepochs, hit_rate(trainer, dset),
@@ -192,11 +193,15 @@ def classify_digits(data, prop=0.2, hln=40, lr=0.04, ne=30):
         plot_conf_matrix(trainer, dset)
 
 
-if __name__ == '__main__':
-
+def main():
+    """Main function for the program."""
     csv_data = open_csv()
     classify_digits(csv_data)
 
     if "--pgm" in argv:
-        for n in csv_data:
-            gen_pgm_file(*pgm_matrix(n))
+        for number in csv_data:
+            gen_pgm_file(*pgm_matrix(number))
+
+
+if __name__ == '__main__':
+    main()

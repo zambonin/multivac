@@ -4,7 +4,8 @@ and it will try its best to park the truck.
 
 Install the needed Python packages with
 
-    # pip install -r requirements.txt
+    $ pip install -r requirements.txt
+    $ pip install scikit-fuzzy
 
 One may need also need to install the `tk` package.
 
