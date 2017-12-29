@@ -1,6 +1,7 @@
 Ontology assignment that models knowledge about the fishing system
 from the game The Legend of Heroes: Trails in the Sky Second Chapter.
-It can be opened with protégé [1].
+It can be opened with protégé [1]. One of the LaTeX documents needs
+the `enumitem` package to be compiled correctly.
 
 [1] http://protege.stanford.edu/
 

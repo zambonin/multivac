@@ -1,20 +1,13 @@
-\documentclass{article}
+\documentclass{../../sftex/sftex}
 
-\usepackage[brazil]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[a4paper, margin=1.5cm]{geometry}
-\usepackage[colorlinks, urlcolor=blue, citecolor=red]{hyperref}
-\usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 
-\title{\textbf{Controlador \emph{fuzzy} para motorista virtual}}
-\author{Emmanuel Podestá Jr., Gustavo Zambonin\thanks{
-        \texttt{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br} \hfill
-        \texttt{\href{https://github.com/zambonin/ufsc-ine5430}{src/}}
-    } \\
-    \small{Inteligência Artificial (UFSC -- INE5430)}
-}
-\date{}
+\title{Controlador \emph{fuzzy} para motorista virtual}
+\author{Emmanuel Podestá Jr., Gustavo Zambonin}
+\email{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br}
+\src{https://github.com/zambonin/ufsc-ine5430}
+\uniclass{Inteligência Artificial}
+\classcode{UFSC-INE5430}
 
 \begin{document}
 
@@ -53,7 +46,7 @@ O ``motorista'' recebe a posição atual do caminhão no plano cartesiano, bem
 como o ângulo de seu veículo, normalizado a partir de uma simples fórmula,
 condizente com o comportamento do servidor. Com estas informações, é
 necessário tomar uma decisão sobre como avançar para estacionar da melhor
-maneira possível. Utilizando os conjuntos especificados na Figura \ref{fig01},
+maneira possível. Utilizando os conjuntos especificados na Figura~\ref{fig01},
 uma série de regras são aplicadas para determinar o próximo movimento do
 caminhão. Tais regras denotam comportamentos de acordo com os dados recebidos.
 Alguns exemplos são listados abaixo. É necessário apontar que caso o caminhão
@@ -101,7 +94,7 @@ A maximização funciona de modo inverso à minimização e representa,
 grosseiramente, a aplicação de uma porta \texttt{OR} sobre os vetores, para
 que todas as regras sejam consideradas no resultado final. Por fim, ocorre a
 ``defuzzificação'' destes dados utilizado o método do centroide, escolhido em
-virtude do estilo de função de pertinência utilizado -- neste caso,
+virtude do estilo de função de pertinência utilizado --- neste caso,
 triangular. \medskip
 
 A escolha dos parâmetros corretos para criar os conjuntos difusos, bem como
@@ -145,8 +138,7 @@ exemplo, utilizado de modo didático para introduzir tais conceitos.
         veículo deve girar no máximo 30º para um dos lados, e isto é fornecido
         ao servidor como um valor dentro do intervalo $[-1, 1]$). Não foi
         necessário a definição de uma terceira partição para classificar a
-        posição do caminhão no eixo das ordenadas.}
-    \label{fig01}
+        posição do caminhão no eixo das ordenadas.}\label{fig01}
 \end{figure}
 
 \end{document}

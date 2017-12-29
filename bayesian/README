@@ -1,3 +1,4 @@
-Assignment about Bayesian networks.
+Assignment about Bayesian networks. The LaTeX document needs the `enumitem`
+and `tikz` packages to be compiled correctly.
 
 Original assignment: afc8563b9f9492ae94845a908c8ddb37b5bd8ace

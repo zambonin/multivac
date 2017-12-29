@@ -1,20 +1,13 @@
-\documentclass{article}
+\documentclass{../../sftex/sftex}
 
-\usepackage[brazil]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[a4paper, margin=1.5cm]{geometry}
-\usepackage[colorlinks, urlcolor=blue, citecolor=red]{hyperref}
-\usepackage[utf8]{inputenc}
 \usepackage{amsmath, graphicx}
 
-\title{\textbf{Utilizando redes neurais para identificar dígitos manuscritos}}
-\author{Emmanuel Podestá Jr., Gustavo Zambonin\thanks{
-        \texttt{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br} \hfill
-        \texttt{\href{https://github.com/zambonin/ufsc-ine5430}{src/}}
-    } \\
-    \small{Inteligência Artificial (UFSC -- INE5430)}
-}
-\date{}
+\title{Utilizando redes neurais para identificar dígitos manuscritos}
+\author{Emmanuel Podestá Jr., Gustavo Zambonin}
+\email{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br}
+\src{https://github.com/zambonin/ufsc-ine5430}
+\uniclass{Inteligência Artificial}
+\classcode{UFSC-INE5430}
 
 \begin{document}
 
@@ -34,11 +27,11 @@ cada qual como uma lista de \emph{pixels} no intervalo $[-1, 1]$ e um valor
 inteiro representando o dígito correspondente no intervalo $[1, 10]$. A
 normalização das intensidades de preto é realizada apenas caso a visualização
 das imagens seja desejada; o método \emph{feature scaling} é aplicado a cada uma
-das listas para que uma imagem no formato PGM \emph{{Portable Graymap Format}})
+das listas para que uma imagem no formato PGM \emph{{Portable Graymap Format}}
 seja gerada.
 
 \begin{figure}[htbp]
-    \[ x' = \frac{(x - min(y)) \times 255}{max(y) - min(y)} \] \vspace{-5mm}
+    \[ x' = \frac{(x - \min(y)) \times 255}{\max(y) - \min(y)} \] \vspace{-5mm}
     \caption{Equação que normaliza valores para o intervalo $[0, 255]$. A
     lista de valores original é representada por $y$, $x$ é valor atual
     e $x'$ é o valor normalizado.}
@@ -69,7 +62,7 @@ dados; três camadas são criadas para processar os dígitos:
         distribuição de probabilidades sobre $K$ diferentes possibilidades,
         relevante no contexto de classificação de dados.
         \begin{align*}
-            \sigma(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}
+            \sigma{(\mathbf{z})}_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}
             \; \forall j = 1, \ldots, K
         \end{align*}
 \end{itemize}
@@ -106,7 +99,6 @@ O programa responsável por controlar a rede neural pode ser encontrado em
     \includegraphics[scale=0.65]{confusion_matrix}
     \caption{Matriz de confusão gerada após a finalização do treinamento
         com o conjunto de argumentos padrão.}
-    \label{fig01}
 \end{figure}
 
 \end{document}

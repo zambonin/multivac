@@ -1,19 +1,13 @@
-\documentclass{article}
+\documentclass{../../sftex/sftex}
 
-\usepackage[brazil]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[a4paper, margin=1.5cm]{geometry}
-\usepackage[colorlinks, urlcolor=blue, citecolor=red]{hyperref}
-\usepackage[utf8]{inputenc}
+\usepackage{amsmath, graphicx}
 
-\title{\textbf{Representação de conhecimento e raciocínio}}
-\author{Emmanuel Podestá Jr., Gustavo Zambonin\thanks{
-        \texttt{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br} \hfill
-        \texttt{\href{https://github.com/zambonin/ufsc-ine5430}{src/}}
-    } \\ \
-    \small{Inteligência Artificial (UFSC -- INE5430)}
-}
-\date{}
+\title{Representação de conhecimento e raciocínio}
+\author{Emmanuel Podestá Jr., Gustavo Zambonin}
+\email{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br}
+\src{https://github.com/zambonin/ufsc-ine5430}
+\uniclass{Inteligência Artificial}
+\classcode{UFSC-INE5430}
 
 \begin{document}
 
@@ -53,12 +47,12 @@
         são verdadeiros. Assim, tal método sintetiza esta técnica, manipulando
         sintaticamente a fórmula lógica inicial e construindo uma árvore de
         possibilidades, que podem ser contraditórias entre si, assim
-        simplificando o resultado final. \cite{Constable:2012}
+        simplificando o resultado final.~\cite{Constable:2012}
 
         O cálculo \emph{tableau} é um conjunto de regras que ditam como o
         \emph{tableau} pode ser modificado, ou seja, quais axiomas podem ser
         utilizados na construção da árvore de possibilidades. O motor
-        \emph{HermiT} \cite{smh08HermiT}, propõe um novo tipo de cálculo com
+        \emph{HermiT}~\cite{smh08HermiT}, propõe um novo tipo de cálculo com
         diversas otimizações, de modo a diminuir o ônus causado pela
         complexidade de ontologias, assim conseguindo classificar uma grande
         variedade de modelos.
@@ -74,7 +68,7 @@
         traduzida pela capacidade de utilizar um conjunto de varas de pescar
         específico. O motor de inferência consegue classificar corretamente
         todas as entidades que podem utilizar uma vara de pescar como humanos
-        e pescadores, entidades que `'pescam`' outras como iscas ou peixes,
+        e pescadores, entidades que ``pescam'' outras como iscas ou peixes,
         e completar uma relação de amizade simétrica.
 
 \end{itemize}

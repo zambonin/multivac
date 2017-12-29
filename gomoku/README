@@ -7,6 +7,7 @@ player, Gomoku game. It can be played by running
     [1] human x human
     ...
 
- with Python 3.
+ with Python 3. One of the LaTeX documents needs the `cancel`, `enumitem` and
+ `tikz` packages to be compiled correctly.
 
  Original assignment: a60dda554635c95911bf4388a93f8f29be9aeaf3

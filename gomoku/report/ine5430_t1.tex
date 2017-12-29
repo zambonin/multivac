@@ -1,17 +1,13 @@
-\documentclass{article}
+\documentclass{../../sftex/sftex}
 
-\usepackage[brazil]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[a4paper, margin=1.5cm]{geometry}
-\usepackage[colorlinks, urlcolor=blue, citecolor=red]{hyperref}
-\usepackage[utf8]{inputenc}
 \usepackage{cancel, enumitem, tikz-qtree}
 
-\title{\textbf{Exemplo de poda $\alpha$-$\beta$ e função heurística para damas}}
-\author{Emmanuel Podestá Jr., Gustavo Zambonin\thanks{
-    \texttt{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br}} \\
-\small {Inteligência Artificial (UFSC -- INE5430)} \vspace{-5mm}}
-\date{}
+\title{Exemplo de poda $\alpha$-$\beta$ e função heurística para damas}
+\author{Emmanuel Podestá Jr., Gustavo Zambonin}
+\email{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br}
+\src{https://github.com/zambonin/ufsc-ine5430}
+\uniclass{Inteligência Artificial}
+\classcode{UFSC-INE5430}
 
 \newcommand{\cc}[1]{\cancel{#1} \;}
 \tikzset{every tree node/.style={align=center,anchor=north}}
@@ -20,11 +16,11 @@
 
 \maketitle
 
-\begin{enumerate}[label=\textbf{\arabic*})]
+\begin{enumerate}[label= (\textbf{\arabic*})]
 
     \item Observações: locais marcados com um asterisco (*) são passíveis de
     poda caso existissem outros filhos. A árvore com raiz em um nodo
-    `'cancelado`' (\cancel{exemplo}) foi podada pelo algoritmo.
+    ``cancelado'' (\cancel{exemplo}) foi podada pelo algoritmo.
 
     \begin{tikzpicture}[sibling distance=-2pt]
 
@@ -110,7 +106,7 @@
         jogador humano, então pode-se decrementar da pontuação deste o valor
         obtido pela análise das peças do jogador computacional.
 
-        \item O número de `'damas`' do jogador deve influenciar mais no valor
+        \item O número de ``damas'' do jogador deve influenciar mais no valor
         final do tabuleiro do que peças normais, visto que é mais difícil
         obtê-las e sua capacidade de movimentação e ataque são melhoradas.
 
@@ -118,7 +114,7 @@
         visto que é muito mais difícil vencer um jogo se suas peças estão
         cercadas por outras de cor diferente.
 
-        \item As possibilidades de ataque de peças normais e `'damas`' devem
+        \item As possibilidades de ataque de peças normais e ``damas'' devem
         ser consideradas, de modo que o algoritmo deve verificar se existem
         movimentos que possam remover uma ou mais peças do adversário; porém,
         tais verificações serão mais custosas em virtude do incremento da
@@ -126,19 +122,18 @@
 
     \end{itemize}
 
-    Note que tais análises são extremamente ingênuas; para produzir um
-    jogador computacional hábil, recursos como a pré-computação de valores
-    para estados de tabuleiros específicos, na forma de bancos de dados;
-    grandes listagens de movimentos de abertura, para maximizar a chance de
-    boas jogadas desde o começo; e otimizações como tabelas de
-    transposição\footnote{tabelas que guardam estados de tabuleiro que são
-    iguais e alcançáveis por um grande número de jogadas diferentes;
-    ou seja, caso uma jogada já tenha sido descartada e um tabuleiro similar
-    aparece novamente, uma consulta nesta tabela pode acelerar a procura de
-    possibilidades no algoritmo, descartando este tabuleiro.} podem ser
-    inseridos no algoritmo para que seu conhecimento seja aumentado.
-    Todos estes exemplos foram aplicados no jogador \textit{Chinook}
-    \cite{Schaeffer1989}.
+    Note que tais análises são extremamente ingênuas; para produzir um jogador
+    computacional hábil, recursos como a pré-computação de valores para estados
+    de tabuleiros específicos, na forma de bancos de dados; grandes listagens
+    de movimentos de abertura, para maximizar a chance de boas jogadas desde o
+    começo; e otimizações como tabelas de transposição\footnote{tabelas que
+    guardam estados de tabuleiro que são iguais e alcançáveis por um grande
+    número de jogadas diferentes; ou seja, caso uma jogada já tenha sido
+    descartada e um tabuleiro similar aparece novamente, uma consulta nesta
+    tabela pode acelerar a procura de possibilidades no algoritmo, descartando
+    este tabuleiro.} podem ser inseridos no algoritmo para que seu conhecimento
+    seja aumentado. Todos estes exemplos foram aplicados no jogador
+    \textit{Chinook}~\cite{Schaeffer1989}.
 
 \end{enumerate}
 
@@ -146,4 +141,3 @@
 \bibliographystyle{plain}
 
 \end{document}
-

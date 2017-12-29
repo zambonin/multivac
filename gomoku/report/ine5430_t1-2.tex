@@ -1,24 +1,18 @@
-\documentclass{article}
+\documentclass{../../sftex/sftex}
 
-\usepackage[brazil]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[a4paper, margin=1.5cm]{geometry}
-\usepackage[colorlinks, urlcolor=blue, citecolor=red]{hyperref}
-\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+
+\title{Poda $\alpha$-$\beta$ aplicada em \textit{gomoku}}
+\author{Emmanuel Podestá Jr., Gustavo Zambonin}
+\email{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br}
+\src{https://github.com/zambonin/ufsc-ine5430}
+\uniclass{Inteligência Artificial}
+\classcode{UFSC-INE5430}
 
 \newcommand{\pslice}{\url{https://docs.python.org/3/glossary.html\#term-slice}}
 \newcommand{\punpack}{\url{https://docs.python.org/3/tutorial/controlflow.html\#unpacking-argument-lists}}
 \newcommand{\plist}{\url{https://docs.python.org/3/tutorial/datastructures.html\#list-comprehensions}}
 \newcommand{\piter}{\url{https://docs.python.org/3/library/itertools.html}}
-
-\title{\textbf{Poda $\alpha$-$\beta$ aplicada em \textit{gomoku}}}
-\author{Emmanuel Podestá Jr., Gustavo Zambonin\thanks{
-    \texttt{\{emmanuel.podesta,gustavo.zambonin\}@grad.ufsc.br} --- todos os
-    algoritmos utilizados podem ser encontrados também
-    \href{https://github.com/zambonin/ufsc-ine5430}{neste repositório}.} \\
-\small {Inteligência Artificial (UFSC -- INE5430)} \vspace{-5mm}}
-\date{}
 
 \begin{document}
 
@@ -33,14 +27,14 @@
         a soma da quantidade de $n$- uplas, $n \in \{1, 2, 3, 4\}$, afetadas
         por certos fatores multiplicativos.
 
-        Tais fatores derivam-se do que pode ser identificado como `'boas`'
-        característica da organização de peças de um determinado jogador:
+        Tais fatores derivam-se do que pode ser identificado como ``boas''
+        características da organização de peças de um determinado jogador:
         alinhamento em algum eixo, falta de obstrução pelo adversário e
         tamanho da $n$-upla.
 
         A obstrução é codificada como um fator que altera gravemente o valor
         do tabuleiro caso uma $n$-upla não consiga ser estendida pelo jogador
-        -- ou seja, se existirem peças do adversário em cada um dos lados
+        --- ou seja, se existirem peças do adversário em cada um dos lados
         de modo a impossibilitar essas jogadas. Caso apenas um dos lados
         esteja bloqueado, a punição não é tão severa. Pode ser representada
         como
@@ -208,16 +202,16 @@
 
         \begin{itemize}
 
-            \item \texttt{minimax.py:ab\_pruning()} implementa o algoritmo
+            \item \texttt{minimax.py:ab\_pruning} implementa o algoritmo
                 minimax com poda.
 
-            \item \texttt{gomoku\_board.py:neighbor\_board()} verifica
+            \item \texttt{gomoku\_board.py:neighbor\_board} verifica
                 vizinhos de uma dada coordenada utilizando
                 \texttt{itertools.starmap} para gerar todas as coordenadas
-                válidas no formato de "estrela", e filtra posições válidas
+                válidas no formato de ``estrela'', e filtra posições válidas
                 através de uma função anônima.
 
-            \item \texttt{gomoku\_board.py:row\_values()} calcula o valor
+            \item \texttt{gomoku\_board.py:row\_values} calcula o valor
                 (heurístico) de uma lista de listas de coordenadas; pode ser
                 reutilizado para todos os eixos, dado que a construção de tais
                 listas sejam corretas.
