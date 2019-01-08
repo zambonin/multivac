@@ -26,6 +26,7 @@ descent method.
 [1] https://en.wikipedia.org/wiki/Softmax_function
 """
 
+from __future__ import absolute_import, division
 from csv import reader
 from random import randrange
 from sys import argv
@@ -55,7 +56,7 @@ def pgm_matrix(row):
     _min, _max = min(row), max(row)
     nmat = list(map(lambda x: (x - _min) * 255 // (_max - _min), row))
 
-    return [nmat[i:i + side] for i in range(0, len(nmat), side)], out
+    return [nmat[i : i + side] for i in range(0, len(nmat), side)], out
 
 
 def gen_pgm_file(matrix, number):
@@ -67,14 +68,14 @@ def gen_pgm_file(matrix, number):
         m:  matrix with pixel data.
         n:  digit represented by the image.
     """
-    name = "{}_{:010x}.pgm".format(number % 10, randrange(16**10))
-    with open(name, 'w') as _file:
+    name = "{}_{:010x}.pgm".format(number % 10, randrange(16 ** 10))
+    with open(name, "w") as _file:
         _file.write("P2\n{} {}\n255\n".format(len(matrix), len(matrix[0])))
         for i in matrix:
             _file.write(" ".join(map(str, i)) + "\n")
 
 
-def open_csv(path='sample.csv'):
+def open_csv(path="sample.csv"):
     """
     Reads a CSV file with each image in a column, and its last value is
     a digit showing what it represents.
@@ -85,7 +86,7 @@ def open_csv(path='sample.csv'):
     Returns:
         Transposed matrix with floating point values inside [-1, 1].
     """
-    with open(path, 'r') as _file:
+    with open(path, "r") as _file:
         return [list(map(float, i)) for i in zip(*reader(_file))]
 
 
@@ -119,7 +120,7 @@ def hit_rate(trainer, data):
         Metric that measures quality of the network.
     """
     result = trainer.testOnClassData(dataset=data)
-    target = [argmax(i) for i in data['target']]
+    target = [argmax(i) for i in data["target"]]
     return 100 - percentError(result, target)
 
 
@@ -133,7 +134,7 @@ def plot_conf_matrix(trainer, data):
         data:       original list of outputs.
     """
     result = trainer.testOnClassData(dataset=data)
-    target = [argmax(i) for i in data['target']]
+    target = [argmax(i) for i in data["target"]]
 
     side = max(target) - min(target) + 1
     mat = [[0 for _ in range(side)] for _ in range(side)]
@@ -143,24 +144,30 @@ def plot_conf_matrix(trainer, data):
     fig = plt.figure()
     axis = fig.add_subplot(111)
 
-    res = axis.imshow([[j / sum(i) for j in i] for i in mat],
-                      cmap=plt.cm.coolwarm, interpolation='nearest')
+    res = axis.imshow(
+        [[j / sum(i) for j in i] for i in mat],
+        cmap=plt.cm.coolwarm,
+        interpolation="nearest",
+    )
     fig.colorbar(res)
 
-    width, height = range(len(mat)), range(len(mat[0]))
+    width, height = list(range(len(mat))), list(range(len(mat[0])))
 
     for wid in width:
         for hei in height:
-            axis.annotate(mat[wid][hei], xy=(hei, wid),
-                          horizontalalignment='center',
-                          verticalalignment='center')
+            axis.annotate(
+                mat[wid][hei],
+                xy=(hei, wid),
+                horizontalalignment="center",
+                verticalalignment="center",
+            )
 
-    plt.xticks(width, width)
-    plt.yticks(height, height)
-    plt.savefig('confusion_matrix.png', format='png')
+    plt.xticks(width)
+    plt.yticks(height)
+    plt.savefig("confusion_matrix.png", format="png")
 
 
-def classify_digits(data, prop=0.2, hln=40, lrate=0.04, epochs=30):
+def classify_digits(data, prop=0.2, hln=40, lrate=0.04, epochs=1):
     """
     Creates a neural network with three layers:
         * 400 neurons for the input layer, one for each pixel;
@@ -179,15 +186,25 @@ def classify_digits(data, prop=0.2, hln=40, lrate=0.04, epochs=30):
     """
     dset = to_dataset(data)
     dtest, dtrain = dset.splitWithProportion(prop)
-    net = buildNetwork(dtrain.indim, hln, dtrain.outdim,
-                       hiddenclass=TanhLayer, outclass=SoftmaxLayer)
+    net = buildNetwork(
+        dtrain.indim,
+        hln,
+        dtrain.outdim,
+        hiddenclass=TanhLayer,
+        outclass=SoftmaxLayer,
+    )
     trainer = BackpropTrainer(net, dataset=dtrain, learningrate=lrate)
 
     for _ in range(epochs):
         trainer.train()
-        print("Epoch: {:3d}   All: {:.2f}%   Train: {:.2f}%   Test: {:.2f}%"
-              .format(trainer.totalepochs, hit_rate(trainer, dset),
-                      hit_rate(trainer, dtrain), hit_rate(trainer, dtest)))
+        print(
+            "Epoch: {:3d}   All: {:.2f}%   Train: {:.2f}%   Test: {:.2f}%".format(
+                trainer.totalepochs,
+                hit_rate(trainer, dset),
+                hit_rate(trainer, dtrain),
+                hit_rate(trainer, dtest),
+            )
+        )
 
     if "--plot" in argv:
         plot_conf_matrix(trainer, dset)
@@ -203,5 +220,5 @@ def main():
             gen_pgm_file(*pgm_matrix(number))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

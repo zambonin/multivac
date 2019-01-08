@@ -9,6 +9,7 @@ of winning, and its opponent is trying to minimize that same chance
 (i.e. maximize its own chances).
 """
 
+from __future__ import absolute_import
 from copy import deepcopy
 from itertools import chain
 from random import choice
@@ -34,10 +35,14 @@ def ab_pruning(board, depth, alpha, beta, player):
         A tuple containing the score for a given board, and the best move
         evaluated by the algorithm.
     """
-    filled_spots = list(chain.from_iterable(
-        board.filled_spaces(i) for i in [1, -1]))
-    empty_neighbors = list(chain.from_iterable(
-        board.empty_neighbors(board.board, i, 1) for i in filled_spots))
+    filled_spots = list(
+        chain.from_iterable(board.filled_spaces(i) for i in [1, -1])
+    )
+    empty_neighbors = list(
+        chain.from_iterable(
+            board.empty_neighbors(board.board, i, 1) for i in filled_spots
+        )
+    )
 
     all_empty = board.filled_spaces(0)
     moves = sorted(list(set(all_empty).intersection(empty_neighbors)))
@@ -47,9 +52,9 @@ def ab_pruning(board, depth, alpha, beta, player):
     if depth == 0:
         final_val = board.evaluate(board.board, player)
         if not final_move_list or board.draw():
-            raise SystemExit('Draw!')
+            raise SystemExit("Draw!")
         if board.victory():
-            final_val += 2**32
+            final_val += 2 ** 32
         return final_val, final_move_list[0]
 
     move = None
@@ -60,7 +65,7 @@ def ab_pruning(board, depth, alpha, beta, player):
         temp_board.place_stone(player, new_move)
 
         if temp_board.victory():
-            return 2**32, new_move
+            return 2 ** 32, new_move
 
         temp_score = ab_pruning(temp_board, depth - 1, alpha, beta, -player)[0]
 

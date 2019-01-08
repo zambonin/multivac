@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+# pylint: disable=C0330,W1633,W1637
 
 """gomoku_board.py
 
@@ -9,13 +10,13 @@ played. A victory occurs if a player forms an unbroken row of five or
 more stones horizontally, vertically or diagonally.
 """
 
+from __future__ import absolute_import, division
 import os
-
 from itertools import chain, groupby, product, starmap
 from random import randint
 
 
-class GomokuBoard():
+class GomokuBoard:
     """Board with n * n intersections where stones are placed."""
 
     def __init__(self, side):
@@ -29,22 +30,28 @@ class GomokuBoard():
 
         self.side = side
         self.board = [[0 for _ in range(side)] for _ in range(side)]
-        self.stones = {0: ' ', 1: '●', -1: '○'}
+        self.stones = {0: " ", 1: "●", -1: "○"}
         self.factors = self.nuple_factors()
 
     def __str__(self):
         """Pretty-prints the board with black and white bullets."""
-        os.system('cls' if os.name == 'nt' else 'clear')
+        os.system("cls" if os.name == "nt" else "clear")
 
-        letter_row = "     " + " ".join(
-            chr(i) for i in range(65, 65 + len(self.board[0]))) + '\n'
-        top_row = '   ┏' + '━' * (2 * len(self.board[0]) + 1) + '┓\n'
-        bottom_row = '   ┗' + '━' * (2 * len(self.board[0]) + 1) + '┛'
+        letter_row = (
+            "     "
+            + " ".join(chr(i) for i in range(65, 65 + len(self.board[0])))
+            + "\n"
+        )
+        top_row = "   ┏" + "━" * (2 * len(self.board[0]) + 1) + "┓\n"
+        bottom_row = "   ┗" + "━" * (2 * len(self.board[0]) + 1) + "┛"
         mid_rows = ""
 
-        for row, i in zip(self.board, range(len(self.board))):
-            mid_rows += '{:02d} ┃ '.format(i + 1) + ' '.join(
-                self.stones[i] for i in row) + ' ┃\n'
+        for i, row in enumerate(self.board):
+            mid_rows += (
+                "{:02d} ┃ ".format(i + 1)
+                + " ".join(self.stones[i] for i in row)
+                + " ┃\n"
+            )
 
         return letter_row + top_row + mid_rows + bottom_row
 
@@ -71,7 +78,7 @@ class GomokuBoard():
         factors = [default]
         for i in range(2, 5):
             nuples = (self.side - i + 1) * 3 * 7.5
-            factors += [round(nuples * factors[i - 2:i - 1][0])]
+            factors += [round(nuples * factors[i - 2 : i - 1][0])]
 
         return {i + 1: j for i, j in enumerate(factors)}
 
@@ -92,8 +99,12 @@ class GomokuBoard():
         diags, hgt, wdt = [], len(board), len(board[0])
 
         for i in range(hgt + wdt - 1):
-            poss_range = range(max(i - wdt + 1, 0), min(hgt - 1, i) + 1)
-            diags.append([board[hgt - 1 - j][i - j] for j in poss_range])
+            diags.append(
+                [
+                    board[hgt - 1 - j][i - j]
+                    for j in range(max(i - wdt + 1, 0), min(hgt - 1, i) + 1)
+                ]
+            )
 
         return diags
 
@@ -107,11 +118,17 @@ class GomokuBoard():
             horizontally, vertically or diagonally aligned on the board,
             False otherwise.
         """
-        for board in [self.board, zip(*self.board),
-                      self.diagonals(), self.diagonals(invert=True)]:
+        for board in [
+            self.board,
+            zip(*self.board),
+            self.diagonals(),
+            self.diagonals(invert=True),
+        ]:
             for row in board:
-                lengths = ((piece, sum(1 for _ in group))
-                           for piece, group in groupby(row))
+                lengths = (
+                    (piece, sum(1 for _ in group))
+                    for piece, group in groupby(row)
+                )
                 if any(i and j >= 5 for i, j in lengths):
                     return True
         return False
@@ -156,8 +173,10 @@ class GomokuBoard():
             True if all the board is filled and there has not been a winner,
             False otherwise.
         """
-        return (all(all(i for i in row) for row in self.board) and
-                not self.victory())
+        return (
+            all(all(i for i in row) for row in self.board)
+            and not self.victory()
+        )
 
     def neighbor_board(self, position, radius):
         """
@@ -174,12 +193,20 @@ class GomokuBoard():
         neighbors = []
 
         for i in range(1, radius + 1):
-            neighbors += list(starmap(lambda a, b: (x_coord + a, y_coord + b),
-                                      product((0, -i, +i), (0, -i, +i))))
+            neighbors += list(
+                starmap(
+                    lambda a, b: (x_coord + a, y_coord + b),
+                    product((0, -i, +i), (0, -i, +i)),
+                )
+            )
 
-        return list(filter(
-            lambda x: x != position and all((0 <= j < self.side) for j in x),
-            neighbors))
+        return list(
+            filter(
+                lambda x: x != position
+                and all((0 <= j < self.side) for j in x),
+                neighbors,
+            )
+        )
 
     def empty_neighbors(self, board, position, radius):
         """
@@ -193,8 +220,11 @@ class GomokuBoard():
         Returns:
             List of empty neighbors' coordinates.
         """
-        return [(i, j) for i, j in self.neighbor_board(position, radius)
-                if not board[i][j]]
+        return [
+            (i, j)
+            for i, j in self.neighbor_board(position, radius)
+            if not board[i][j]
+        ]
 
     def filled_spaces(self, player):
         """
@@ -208,9 +238,11 @@ class GomokuBoard():
         Returns:
             List with the coordinates of the valid places.
         """
-        size = range(len(self.board))
-        _list = [[(i, j) for j in size if self.board[i][j] == player]
-                 for i in size]
+        size = enumerate(self.board)
+        _list = [
+            [(i, j) for j, _ in size if self.board[i][j] == player]
+            for i, _ in size
+        ]
 
         return list(chain.from_iterable(_list))
 
@@ -236,21 +268,22 @@ class GomokuBoard():
 
         for row in (i for i in board if sum(i)):
             row = [2] + list(row) + [2]
-            lengths = [[piece, sum(1 for _ in group)]
-                       for piece, group in groupby(row)]
+            lengths = [
+                [piece, sum(1 for _ in group)] for piece, group in groupby(row)
+            ]
 
             for i in range(1, len(lengths) - 1):
                 sides = lengths[i - 1][0] == 0 + lengths[i + 1][0] == 0
-                if (lengths[i] == [0, 1] and
-                        lengths[i - 1][1] + lengths[i + 1][1] >= 4 and
-                        lengths[i - 1][0] == lengths[i + 1][0] == player):
-                    return 2**32
-                elif lengths[i][0] == player:
+                if (
+                    lengths[i] == [0, 1]
+                    and lengths[i - 1][1] + lengths[i + 1][1] >= 4
+                    and lengths[i - 1][0] == lengths[i + 1][0] == player
+                ):
+                    return 2 ** 32
+                if lengths[i][0] == player:
                     if lengths[i][1] >= 4 and sides:
-                        return 2**32
-                    else:
-                        value += (self.factors[lengths[i][1]] *
-                                  open_sides[sides])
+                        return 2 ** 32
+                    value += self.factors[lengths[i][1]] * open_sides[sides]
 
         return value
 
@@ -280,8 +313,9 @@ class GomokuBoard():
         Returns:
             An integer that reflects these factors.
         """
-        return (self.row_values(self.diagonals(board), player) +
-                self.row_values(self.diagonals(invert=True), player))
+        return self.row_values(self.diagonals(board), player) + self.row_values(
+            self.diagonals(invert=True), player
+        )
 
     def evaluate(self, board, player):
         """
@@ -303,8 +337,8 @@ class GomokuBoard():
             a possible victory.
         """
         value = 0
-        for i in ('row', 'col', 'diag'):
-            func = getattr(self, '{}_values'.format(i))
+        for i in ("row", "col", "diag"):
+            func = getattr(self, "{}_values".format(i))
             value += func(board, player) - func(board, -player)
 
         return value
@@ -314,5 +348,6 @@ class GomokuBoard():
         Produces a randomly populated board for debugging purposes, overriding
         the attribute for the class.
         """
-        self.board = [[randint(-1, 1) for _ in range(self.side)]
-                      for _ in range(self.side)]
+        self.board = [
+            [randint(-1, 1) for _ in range(self.side)] for _ in range(self.side)
+        ]
